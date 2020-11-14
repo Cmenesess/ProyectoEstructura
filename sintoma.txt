@@ -1,0 +1,16 @@
+vómito|1
+fiebre|0
+resfrio|3
+congestión nasal|3
+Dolor de garganta|3
+Dolor muscular|4
+Tos seca|4
+Cansancio|5
+Congestion nasal|3
+Diarrea|2
+Falta de aire|0
+Fatiga|1
+Secrecion nasal|2
+Nauseas|3
+Perdida del gusto|3
+Perdida de Olfato|4
