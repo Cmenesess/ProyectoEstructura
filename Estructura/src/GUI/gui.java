@@ -21,16 +21,21 @@ import javafx.scene.media.MediaPlayer;
 
 public class gui{
     private VBox root = new VBox();
-    private Label reloj = new Label("");
+    private Label reloj = new Label();
     Thread cl = new Thread(new Time(reloj));
     private HBox p = new HBox();
     private Label horarios = new Label("Horario de atención de Lunes a Viernes de 10 a 18 hs/ Sabados");
     private TableView turnos = new TableView();
     private Button opciones = new Button("OPCIONES");
+    Thread hilo = new Thread(new Time(reloj));
+    
     
     public gui(){
-        p.getChildren().addAll(opciones, turnos);
+        p.getChildren().addAll(opciones,turnos);
+        hilo.start();
         root.getChildren().addAll(reloj, p, horarios);
+        
+        
     }
     public VBox getRoot(){
         return root;
@@ -47,7 +52,7 @@ public class gui{
 
         @Override
         public void run() {
-            
+                while(0<1){
                 try {
                     tp = LocalDateTime.now();
                     int hour = tp.getHour();
@@ -62,7 +67,7 @@ public class gui{
                 } catch (InterruptedException e) {
                     System.out.println(e.getMessage());
                 }
-            
+                }
         }
     
 }
