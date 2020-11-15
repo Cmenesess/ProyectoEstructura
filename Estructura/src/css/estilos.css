@@ -1,0 +1,32 @@
+
+.button {
+    -fx-text-fill: white;
+    -fx-font-family: "Arial Narrow";
+    -fx-font-weight: bold;
+    /*-fx-background-color: linear-gradient(#61a2b1, #2A5058);*/
+    -fx-background-color: #00008B;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
+}
+
+.label {
+    -fx-font-size: 14px;
+    -fx-padding: 10 15 10 15;
+    -fx-font-family: "Arial Narrow";
+    -fx-font-weight: bold;
+
+}
+
+#titulo{
+   -fx-font-size: 22px;
+   -fx-font-family: "Arial Black";
+   /*-fx-fill: #818181;*/
+   -fx-effect: innershadow( three-pass-box , rgba(0,0,0,0.7) , 6, 0.0 , 0 , 2 );
+   -fx-text-fill: #00008B;
+}
+
+
+
+#box {
+    -fx-background-color: #d7f0f7;
+}
+
