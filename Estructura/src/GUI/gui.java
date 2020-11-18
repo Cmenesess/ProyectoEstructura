@@ -7,9 +7,11 @@ package GUI;
 
 import java.time.LocalDateTime;
 import javafx.application.Platform;
+import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableView;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.media.Media;
@@ -23,7 +25,7 @@ public class gui{
     private VBox root = new VBox();
     private Label reloj = new Label();
     Thread cl = new Thread(new Time(reloj));
-    private HBox p = new HBox();
+    private BorderPane p = new BorderPane();
     private Label horarios = new Label("Horario de atención de Lunes a Viernes de 10 a 18 hs/ Sabados");
     private TableView turnos = new TableView();
     private Button opciones = new Button("OPCIONES");
@@ -31,9 +33,15 @@ public class gui{
     
     
     public gui(){
-        p.getChildren().addAll(opciones,turnos);
         hilo.start();
         root.getChildren().addAll(reloj, p, horarios);
+        VBox cont=new VBox();
+        cont.setId("video");
+        cont.setAlignment(Pos.CENTER);
+        cont.getChildren().addAll((new video().getVideo()));
+        p.setRight(turnos);
+        p.setLeft(opciones);
+        p.setCenter(cont);
         
         
     }

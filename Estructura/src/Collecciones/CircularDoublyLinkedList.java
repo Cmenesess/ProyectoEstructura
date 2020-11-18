@@ -5,11 +5,13 @@
  */
 package Collecciones;
 
+import java.util.Iterator;
+
 /**
  *
  * @author carloshumbertomenesesmurillo
  */
-public class CircularDoublyLinkedList<E> implements List<E>{
+public class CircularDoublyLinkedList<E> implements List<E>,Iterable<E>{
     private class Node<E> {
         public E data;
         public Node<E> previous,next;
@@ -19,16 +21,23 @@ public class CircularDoublyLinkedList<E> implements List<E>{
     }
     public Node<E> raiz;
     public int current;
-    public void switchFirstAndLast(){
-        Node<E> penultimo= raiz.previous;
-        Node<E> primero= raiz.next;
-        primero.previous=penultimo;
-        penultimo.next=primero;
-        raiz.next=primero.next;
-        primero.next=raiz;
-        raiz.previous=primero;
-        raiz=primero;
+    
+    @Override
+    public Iterator<E> iterator() {
+        return new Iterator<E>(){
+            Node<E> p=raiz.next;
+            public boolean hasNext(){
+                return !isEmpty();
+            }
+            
+            public E next(){
+                E tmp=p.data;
+                p=p.next;
+                return tmp;
+            }
+        };
     }
+
     @Override
     public boolean addFirst(E element) {
         if(element== null) return false;

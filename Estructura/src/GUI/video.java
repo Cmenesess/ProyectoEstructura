@@ -5,7 +5,7 @@
  */
 package GUI;
 
-import Collecciones.CircularSimplyLinkedList;
+import Collecciones.CircularDoublyLinkedList;
 import estructura.LecturaDeArchivos;
 import java.io.File;
 import java.util.Iterator;
@@ -23,7 +23,7 @@ public class video {
     
     public video(){
         LecturaDeArchivos l = new LecturaDeArchivos("src/Archivos/videos.txt");
-        CircularSimplyLinkedList<String> csl = l.leerArchivoVideos();
+        CircularDoublyLinkedList<String> csl = l.leerArchivoVideos();
         crearMediaView(csl);
     }
     public MediaView getVideo(){
@@ -32,26 +32,18 @@ public class video {
     public void correrVideo(MediaView media, Iterator<String> it){
         if(it.hasNext()){
             mediaPlayer = new MediaPlayer(new Media(new File(("src/Archivos/"+it.next())).toURI().toString()));
+            media.setMediaPlayer(mediaPlayer);
             mediaPlayer.setAutoPlay(true);
             mediaPlayer.setOnEndOfMedia(() -> {correrVideo(mediaView, it);
             }
             );
-            mediaView.setMediaPlayer(mediaPlayer);
         }
     }
-    public MediaView crearMediaView(CircularSimplyLinkedList dirs){
+    public MediaView crearMediaView(CircularDoublyLinkedList dirs){
         mediaView = new MediaView();
-        correrVideo(mediaView, dirs.iterator());
-        mediaView.setOnMouseClicked(e->{
-            if(mediaView.getMediaPlayer().getStatus()==MediaPlayer.Status.PLAYING){
-                mediaView.getMediaPlayer().pause();
-            }else if(mediaView.getMediaPlayer().getStatus()==MediaPlayer.Status.PAUSED){
-                
-                mediaView.getMediaPlayer().play();
-            }
-        });
-        mediaView.setFitHeight(200);
-        mediaView.setFitWidth(200);
+        correrVideo(mediaView,dirs.iterator());
+        mediaView.setFitHeight(450);
+        mediaView.setFitWidth(450);
         return mediaView;
     }
     

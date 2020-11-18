@@ -6,6 +6,8 @@
 package estructura;
 
 import Collecciones.ArrayList;
+import Collecciones.CircularDoublyLinkedList;
+import Collecciones.CircularSimplyLinkedList;
 import Collecciones.List;
 import Persona.*;
 import java.io.BufferedReader;
@@ -57,9 +59,9 @@ public class LecturaDeArchivos {
                 lista_Persona.addLast(persona);
             }
         } catch (FileNotFoundException ex) {
-            Logger.getLogger(LecturaDeArchivos.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println(ex.getMessage());;
         } catch (IOException ex) {
-            Logger.getLogger(LecturaDeArchivos.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println(ex.getMessage());
         }
         return lista_Persona;
     }
@@ -67,6 +69,20 @@ public class LecturaDeArchivos {
         if(array.length>3)return new Paciente(array[0],array[1],array[2],array[3],new Sintoma(array[4],Integer.parseInt(array[5])));
         return new Medico(array[0],array[1],Especialidad.valueOf(array[2]));
         
+    }
+    public static CircularDoublyLinkedList<String> leerArchivoVideos(){
+        CircularDoublyLinkedList<String> video=new CircularDoublyLinkedList<>();
+        try(BufferedReader bf=new BufferedReader(new FileReader("src/Archivos/videos.txt"))){
+            String linea;
+            while((linea=bf.readLine())!=null){
+                video.addLast(linea);
+            }
+        }catch(FileNotFoundException e){
+            System.out.println(e.getMessage());
+        }catch(IOException ex){
+            System.out.println(ex.getMessage());
+        }
+        return video;
     }
     
 }
