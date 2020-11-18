@@ -5,6 +5,7 @@
  */
 package GUI;
 
+import java.awt.Desktop.Action;
 import java.time.LocalDateTime;
 import javafx.application.Platform;
 import javafx.geometry.Pos;
@@ -16,6 +17,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
+import javafx.stage.Stage;
 /**
  *
  * @author Xavier
@@ -42,7 +44,6 @@ public class gui{
         p.setRight(turnos);
         p.setLeft(opciones);
         p.setCenter(cont);
-        
         
     }
     public VBox getRoot(){
