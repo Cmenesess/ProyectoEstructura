@@ -3,11 +3,23 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/PROYECTO/PULLEA/ProyectoEstructura/Estructura/src/GUI/opciones.java</file>
-            <file>file:/C:/PROYECTO/PULLEA/ProyectoEstructura/Estructura/src/GUI/SistemaDeTurnos.java</file>
-            <file>file:/C:/PROYECTO/PULLEA/ProyectoEstructura/Estructura/src/GUI/crearPuesto.java</file>
-            <file>file:/C:/PROYECTO/PULLEA/ProyectoEstructura/Estructura/src/Archivos/Pacientes.txt</file>
-            <file>file:/C:/PROYECTO/PULLEA/ProyectoEstructura/Estructura/src/estructura/LecturaDeArchivos.java</file>
+            <file>file:/Users/carloshumbertomenesesmurillo/Desktop/Estructura/ProyectoEstructura/Estructura/src/Persona/Especialidad.java</file>
+            <file>file:/Users/carloshumbertomenesesmurillo/Desktop/Estructura/ProyectoEstructura/Estructura/src/Archivos/sintoma.txt</file>
+            <file>file:/Users/carloshumbertomenesesmurillo/Desktop/Estructura/ProyectoEstructura/Estructura/src/GUI/Operatividad.java</file>
+            <file>file:/Users/carloshumbertomenesesmurillo/Desktop/Estructura/ProyectoEstructura/Estructura/src/Persona/Persona.java</file>
+            <file>file:/Users/carloshumbertomenesesmurillo/Desktop/Estructura/ProyectoEstructura/Estructura/src/GUI/formularioDoctor.java</file>
+            <file>file:/Users/carloshumbertomenesesmurillo/Desktop/Estructura/ProyectoEstructura/Estructura/src/GUI/gui.java</file>
+            <file>file:/Users/carloshumbertomenesesmurillo/Desktop/Estructura/ProyectoEstructura/Estructura/src/GUI/SistemaDeTurnos.java</file>
+            <file>file:/Users/carloshumbertomenesesmurillo/Desktop/Estructura/ProyectoEstructura/Estructura/src/Persona/Puesto.java</file>
+            <file>file:/Users/carloshumbertomenesesmurillo/Desktop/Estructura/ProyectoEstructura/Estructura/src/GUI/atender.java</file>
+            <file>file:/Users/carloshumbertomenesesmurillo/Desktop/Estructura/ProyectoEstructura/Estructura/src/Persona/Medico.java</file>
+            <file>file:/Users/carloshumbertomenesesmurillo/Desktop/Estructura/ProyectoEstructura/Estructura/src/GUI/crearPuesto.java</file>
+            <file>file:/Users/carloshumbertomenesesmurillo/Desktop/Estructura/ProyectoEstructura/Estructura/src/GUI/opciones.java</file>
+            <file>file:/Users/carloshumbertomenesesmurillo/Desktop/Estructura/ProyectoEstructura/Estructura/src/Persona/Paciente.java</file>
+            <file>file:/Users/carloshumbertomenesesmurillo/Desktop/Estructura/ProyectoEstructura/Estructura/src/GUI/video.java</file>
+            <file>file:/Users/carloshumbertomenesesmurillo/Desktop/Estructura/ProyectoEstructura/Estructura/src/GUI/formularioPaciente.java</file>
+            <file>file:/Users/carloshumbertomenesesmurillo/Desktop/Estructura/ProyectoEstructura/Estructura/src/Archivos/puestos.txt</file>
+            <file>file:/Users/carloshumbertomenesesmurillo/Desktop/Estructura/ProyectoEstructura/Estructura/src/GUI/FormularioPuesto.java</file>
         </group>
     </open-files>
 </project-private>

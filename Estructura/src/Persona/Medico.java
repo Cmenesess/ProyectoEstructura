@@ -2,7 +2,7 @@
 package Persona;
 
 public class Medico extends Persona{
-    public String nombre, apellido, especialidad;
+    public String especialidad;
     public boolean asignacion;
     public boolean disponibilidad;
     
@@ -25,7 +25,7 @@ public class Medico extends Persona{
     public void NoDisponible() {
         disponibilidad=false;
     }
-	 public String getNombre() {
+    public String getNombre() {
         return nombre;
     }
 

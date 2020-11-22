@@ -2,7 +2,7 @@
 package Persona;
 
 public class Paciente extends Persona{
-    String nombre, apellido, genero;
+    String genero;
     int edad;
     Sintoma sintoma;
     int Turno;

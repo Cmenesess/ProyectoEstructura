@@ -14,12 +14,11 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 public class gui {
-    private ArrayList<Puesto> puestos = new ArrayList<>();
     private Label reloj = new Label();
     Thread cl = new Thread(new Time(reloj));
     private BorderPane root = new BorderPane();
     private Label horarios = new Label("                                     Horario de atención de Lunes a Viernes de 10 a 18 hs/ Sabados");
-    private TableView turnos = createTable();
+    private static TableView turnos = createTable();
     private Button opt = new Button("OPCIONES");
     Thread hilo = new Thread(new Time(reloj));
     public gui() {
@@ -73,7 +72,7 @@ public class gui {
 
     }
     
-    private TableView createTable(){
+    private static TableView createTable(){
         TableView table = new TableView();
         TableColumn<Paciente, Puesto> turn = new TableColumn<>("Turno");
         turn.setCellValueFactory(new PropertyValueFactory<>("paciente"));
@@ -85,10 +84,12 @@ public class gui {
         return table;
     }
     
-    private void actualizarTableView(){
+    public static void actualizarTableView(){
         turnos.getItems().clear();        
-        for (Puesto p: puestos){
-            turnos.getItems().add(p);
+        for (Puesto p: Operatividad.getInstance().getPuestos()){
+            if(!p.Activo()){
+                turnos.getItems().add(p);
+            }
         }
     }
     

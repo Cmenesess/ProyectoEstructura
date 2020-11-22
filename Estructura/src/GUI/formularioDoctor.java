@@ -43,7 +43,7 @@ public class formularioDoctor extends Formulario{
     }
     public void crearDoctor(){
         Medico m = new Medico(nombre.getText(), especialidad.getText(), id.getText());
-        Operatividad.getInstance().doctores.add(m);
+        Operatividad.getInstance().doctores.addLast(m);
     }
     
     public GridPane getRoot(){

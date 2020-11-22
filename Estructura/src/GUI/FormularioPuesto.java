@@ -34,6 +34,7 @@ public class FormularioPuesto extends Formulario {
     public void CrearFormulario(){
         ComboBox<Puesto> combo = new ComboBox<Puesto>();
         combo.getItems().addAll(PuestoDisponible);
+        System.out.println(DoctoresDisponibles);
         ComboBox<Medico> medicos=new ComboBox<Medico>();
         medicos.getItems().addAll(DoctoresDisponibles);
         combo.getSelectionModel().selectFirst();
@@ -50,9 +51,10 @@ public class FormularioPuesto extends Formulario {
         CrearVentana();
         ok.setOnAction(e->{
            Puesto puesto=(Puesto)((ComboBox)root.getChildren().get(1)).getValue();
-           Medico medico=(Medico)((ComboBox)root.getChildren().get(1)).getValue();
+           Medico medico=(Medico)((ComboBox)root.getChildren().get(3)).getValue();
            medico.EstadoAsignado();
            puesto.setMedicoTurnoo(medico);
+           Operatividad.getInstance().generarPuesto(puesto);
            mostrarAlerta("Se ha asignado exitosamente el puesto al medico");
            window.close();
         });

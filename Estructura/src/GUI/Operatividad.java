@@ -17,6 +17,7 @@ public class Operatividad {
     private Operatividad(){
         this.Pacientes = LecturaDeArchivos.LecturaPaciente();
         puestos=LecturaDeArchivos.LecturaPuestos();
+        TurnosIniciales();
     }
     public static Operatividad getInstance() {
         if (null == operatividad)
@@ -31,12 +32,25 @@ public class Operatividad {
             puesto.setPaciente(Pacientes.poll());
         }
     }
-
+    private void TurnosIniciales(){
+        List<Paciente> tmp = new LinkedList<>(); 
+        while(!Pacientes.isEmpty()){
+            Paciente p = Pacientes.poll();
+            p.setTurno(turno++);
+            tmp.add(p);
+        }
+        Pacientes.addAll(tmp);
+    }
     public int generadorTurnos(){
         int turno_actual=turno;
         ++turno;
         return turno_actual;
     }
+    
+    public void eliminarPuesto(Puesto p){
+        puestos.remove(p);
+    }
+
     public Puesto puestoDisponible(){
         for(Puesto pu: puestos){
             if(pu.Activo()) return pu;
@@ -59,6 +73,22 @@ public class Operatividad {
         }
         return disponibles;
     }
-    
+
+    public LinkedList<Puesto> getPuestos() {
+        return puestos;
+    }
+
+    public void setPuestos(LinkedList<Puesto> puestos) {
+        this.puestos = puestos;
+    }
+    public boolean generarPuesto(Puesto p){
+        if(!Pacientes.isEmpty()){
+            p.setPaciente(Pacientes.poll());
+            p.Disponibilidad();
+            gui.actualizarTableView();
+        }
+        return true;
+    }
+
     
 }
