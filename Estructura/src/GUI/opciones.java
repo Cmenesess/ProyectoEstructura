@@ -47,7 +47,7 @@ public class opciones {
                 alert.show();
             }
         });
-        atender.setOnAction(a->new atender());
+        atender.setOnAction(a->new atender(Operatividad.getInstance().puestoDisponible()));
         Stage window = new Stage();
         window.setTitle("OPCIONES");
         window.setMinHeight(100);

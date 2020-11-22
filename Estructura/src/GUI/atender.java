@@ -27,16 +27,17 @@ import javafx.stage.Stage;
  */
 public class atender {
     private Puesto p;
-    public atender(){
+    TextField enfermedad = new TextField("Ingrese la enfermedad presentada");
+    Label in = new Label("Debido a los sintomas mencionados, usted padece de: ");
+    TextField medicina = new TextField("Ingrese la medicina a recetar");
+    Label mid = new Label("Por lo que se le recomienda tomar la siguiente medicina: ");
+    Button ingresar = new Button("Enviar Receta");
+    public atender(Puesto p){
         llenar();
     }
     public void llenar(){
         VBox root = new VBox();
-        TextField enfermedad = new TextField("Ingrese la enfermedad presentada");
-        Label in = new Label("Debido a los sintomas mencionados, usted padece de: ");
-        TextField medicina = new TextField("Ingrese la medicina a recetar");
-        Label mid = new Label("Por lo que se le recomienda tomar la siguiente medicina: ");
-        Button ingresar = new Button("Enviar Receta");
+        
         root.getChildren().addAll(in,enfermedad,mid,medicina,ingresar);
         Stage window = new Stage();
         window.setTitle("Recetas");
@@ -46,21 +47,16 @@ public class atender {
         window.setScene(scene);
         window.show();
     }
-    public Medico obtenerDoctor(Puesto p){
-        Medico m = p.getMedicoTurnoo();
-        return m;
-    }
-    public Paciente obtenerPaciente(Puesto p){
-        Paciente pa = p.getPaciente();
-        return pa;
+
+    public void generarReceta(Puesto pu){
+        Medico d = pu.getMedicoTurnoo();
+        Paciente p = pu.getPaciente();
         
-    }
-    public void generarReceta(Paciente p, Medico d, String resultado, String medi){
         String apellidoDoc = d.getApellido();
         String apellidoPaciente = p.getApellido();
         try {
         FileWriter writer = new FileWriter("src/Archivos/recetas.txt");
-        String res = ("El doctor " + apellidoDoc + " le receta al Sr/Sra "+ apellidoPaciente +  medi + " debido a su " + resultado );
+        String res = ("El doctor " + apellidoDoc + " le receta al Sr/Sra "+ apellidoPaciente +  medicina.getText()  + " debido a su " + enfermedad.getText() );
     }
     catch (IOException e){
     System.err.println("ERROR EN LECTURA");
