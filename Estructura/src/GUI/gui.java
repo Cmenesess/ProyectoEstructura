@@ -18,6 +18,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
+import GUI.opciones;
 /**
  *
  * @author Xavier
@@ -30,7 +31,7 @@ public class gui{
     private BorderPane p = new BorderPane();
     private Label horarios = new Label("Horario de atención de Lunes a Viernes de 10 a 18 hs/ Sabados");
     private TableView turnos = new TableView();
-    private Button opciones = new Button("OPCIONES");
+    private Button opt = new Button("OPCIONES");
     Thread hilo = new Thread(new Time(reloj));
     
     
@@ -42,13 +43,15 @@ public class gui{
         cont.setAlignment(Pos.CENTER);
         cont.getChildren().addAll((new video().getVideo()));
         p.setRight(turnos);
-        p.setLeft(opciones);
+        p.setLeft(opt);
+        opt.setOnAction(o->new opciones());
         p.setCenter(cont);
         
     }
     public VBox getRoot(){
         return root;
         }
+
     private class Time implements Runnable {
 
         private Label lbl;

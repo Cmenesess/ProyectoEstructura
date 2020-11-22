@@ -25,7 +25,7 @@ public class SistemaDeTurnos extends Application {
         sc.getStylesheets().add("css/estilos.css");
         primaryStage.setTitle("Sistema de Turnos");
         primaryStage.setScene(sc);
-        primaryStage.show();
+        primaryStage.show();        
     }
 
     /**
