@@ -48,6 +48,7 @@ public class opciones {
                 alert.show();
             }
         });
+        atender.setOnAction(a->new atender());
         Stage window = new Stage();
         window.setTitle("OPCIONES");
         window.setMinHeight(100);
