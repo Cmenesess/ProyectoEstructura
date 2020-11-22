@@ -33,5 +33,5 @@ public abstract class Formulario {
         window.setScene(scene);
         window.show();
     }
-    
+
 }

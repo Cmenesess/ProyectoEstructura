@@ -21,7 +21,6 @@ public class Puesto {
     public Paciente getPaciente() {
         return paciente;
     }
-
     public void setPaciente(Paciente paciente) {
         this.paciente = paciente;
     }
@@ -37,6 +36,12 @@ public class Puesto {
 
     public void setMedicoTurnoo(Medico MedicoTurnoo) {
         this.MedicoTurnoo = MedicoTurnoo;
+    }
+    public boolean Asignacion(){
+        if(MedicoTurnoo==null){
+            return false;
+        }
+       return true;
     }
 
     public int getNumero() {

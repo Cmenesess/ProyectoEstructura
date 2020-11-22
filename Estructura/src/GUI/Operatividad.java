@@ -17,7 +17,7 @@ import java.util.PriorityQueue;
  * @author carloshumbertomenesesmurillo
  */
 public class Operatividad {
-    public static Operatividad operatividad=new Operatividad();
+    private static Operatividad operatividad=null;
     public LinkedList<Medico> doctores=new LinkedList<Medico>();
     public PriorityQueue<Paciente> Pacientes=new PriorityQueue<Paciente>();
     public LinkedList<Puesto> puestos=new LinkedList<Puesto>();
@@ -25,6 +25,11 @@ public class Operatividad {
     private Operatividad(){
         this.Pacientes = LecturaDeArchivos.LecturaPaciente();
         puestos=LecturaDeArchivos.LecturaPuestos();
+    }
+    public static Operatividad getInstance() {
+        if (null == operatividad)
+            operatividad = new Operatividad();
+        return operatividad;
     }
     public void agregarCola(Paciente p){
         Pacientes.offer(p);
@@ -45,16 +50,16 @@ public class Operatividad {
         }
         return null;
     }
-    public List<Puesto> puestosDisponible(){
-        List<Puesto> disponibles=new ArrayList<>();
+    public LinkedList<Puesto> puestosSinAsignar(){
+        LinkedList<Puesto> disponibles=new LinkedList<>();
         for(Puesto p: puestos)
-            if(p.Activo()) disponibles.add(p);
+            if(!p.Asignacion()) disponibles.add(p);
         return disponibles;
     }
-    public LinkedList<Medico> MedicosDisponibles(){
+    public LinkedList<Medico> MedicosSinAsignar(){
         LinkedList<Medico> disponibles=new LinkedList<>();
         for(Medico p: doctores){
-             if(p.disponibilidad) disponibles.add(p);
+             if(!p.Estado()) disponibles.add(p);
         }
         return disponibles;
     }

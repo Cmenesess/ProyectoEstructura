@@ -62,7 +62,7 @@ public class formularioPaciente extends Formulario{
                 try{
                     int edad=Integer.parseInt(((TextField)root.getChildren().get(5)).getText());
                     Paciente p=new Paciente(nombre,Apellido,Genero,edad,sintoma);
-                    Operatividad.operatividad.agregarCola(p);
+                    Operatividad.getInstance().agregarCola(p);
                     mostrarAlerta("Su turno es: "+p.getTurno());
                     window.close();
                 }catch(NumberFormatException ex){

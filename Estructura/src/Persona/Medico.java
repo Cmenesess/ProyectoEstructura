@@ -3,19 +3,20 @@ package Persona;
 
 public class Medico extends Persona{
     public String nombre, apellido, especialidad;
-    public boolean sin_asignacion;
+    public boolean asignacion;
     public boolean disponibilidad;
     
     public Medico( String nombre, String apellido,String especialidad){
         super(nombre, apellido);
         this.especialidad = especialidad;
         disponibilidad=true;
+        asignacion=false;
     }
     public boolean Estado(){
-        return sin_asignacion;
+        return asignacion;
     }
     public void EstadoAsignado(){
-        sin_asignacion=true;
+        asignacion=true;
     }
     public boolean isDisponibilidad() {
         return disponibilidad;

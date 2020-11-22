@@ -50,7 +50,7 @@ public class LecturaDeArchivos {
         PriorityQueue<Paciente> Pacien=new PriorityQueue<>((Paciente p1, Paciente p2)-> p1.getSintoma().getPrioridad()-p2.getSintoma().getPrioridad());
         FileReader f = null;
         try {
-            f = new FileReader("src/Archivos/personas.txt");
+            f = new FileReader("src/Archivos/pacientes.txt");
             BufferedReader b = new BufferedReader(f);
             String cadena;
             while((cadena=b.readLine())!=null){
