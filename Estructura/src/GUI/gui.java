@@ -33,8 +33,6 @@ public class gui{
     private TableView turnos = new TableView();
     private Button opt = new Button("OPCIONES");
     Thread hilo = new Thread(new Time(reloj));
-    
-    
     public gui(){
         hilo.start();
         root.getChildren().addAll(reloj, p, horarios);

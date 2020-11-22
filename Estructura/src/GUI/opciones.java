@@ -35,8 +35,16 @@ public class opciones {
     }
     public void llenar(){
         root.getChildren().addAll(texto, sturno, cturno, eturno, atender, doctor);
-        sturno.setOnAction(e->{new formularioPaciente(LecturaDeArchivos.LecturaSintomas());});
+        sturno.setOnAction(e->new formularioPaciente(LecturaDeArchivos.LecturaSintomas()));
         doctor.setOnAction(d-> new formularioDoctor());
+        eturno.setOnAction(d->{ 
+            
+            if(){
+                new FormularioPuesto();
+            }else{
+                
+            }
+        });
         Stage window = new Stage();
         window.setTitle("OPCIONES");
         window.setMinHeight(400);

@@ -20,8 +20,7 @@ import Persona.roles;
  *
  * @author Xavier
  */
-public class formularioDoctor{
-    private GridPane root = new GridPane();
+public class formularioDoctor extends Formulario{
     private TextField nombre = new TextField("Ingrese su nombre");
     private TextField especialidad = new TextField("Ingrese su especialidad");
     private TextField id = new TextField("Ingrese su identificacion");
@@ -42,13 +41,7 @@ public class formularioDoctor{
         root.add(new Label("Identificación: "), 0, 2);
         root.add(id, 1, 2);
         root.add(ingresar, 1,3);
-        Stage window = new Stage();
-        window.setTitle("Ingresar doctor");
-        window.setMinHeight(400);
-        window.setMinWidth(400);
-        Scene scene = new Scene((Parent)root,400,400);
-        window.setScene(scene);
-        window.show();
+        CrearVentana();
     }
     public void crearDoctor(){
         String nom = nombre.getText();

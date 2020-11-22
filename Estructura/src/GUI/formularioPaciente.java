@@ -18,8 +18,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
-public class formularioPaciente{
-    private GridPane root;
+public class formularioPaciente extends Formulario{
     private ArrayList<Sintoma> sintomas;
 
     public formularioPaciente(ArrayList<Sintoma> sintomas){
@@ -53,13 +52,7 @@ public class formularioPaciente{
         root.add(new Label("Sintoma: "), 0, 4);
         root.add(combo, 1, 4);
         root.add(ok,1,5);
-        Stage window = new Stage();
-        window.setTitle("Formulario Paciente");
-        window.setMinHeight(400);
-        window.setMinWidth(400);
-        Scene scene = new Scene((Parent)root,200,200);
-        window.setScene(scene);
-        window.show();
+        CrearVentana();
         ok.setOnAction(e->{
             String nombre=((TextField)root.getChildren().get(1)).getText();
             String Apellido=((TextField)root.getChildren().get(3)).getText();
@@ -71,6 +64,7 @@ public class formularioPaciente{
                     Paciente p=new Paciente(nombre,Apellido,Genero,edad,sintoma);
                     Operatividad.operatividad.agregarCola(p);
                     mostrarAlerta("Su turno es: "+p.getTurno());
+                    window.close();
                 }catch(NumberFormatException ex){
                     mostrarAlerta("No ha ingresado una edad valida");
                 }
@@ -85,15 +79,5 @@ public class formularioPaciente{
 
     public GridPane getRoot() {
         return root;
-    }
-    private void mostrarAlerta(String mensaje){
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Information Dialog");
-        alert.setHeaderText(mensaje);
-        alert.show();
-    }
-    
-    
-    
-    
+    }  
 }

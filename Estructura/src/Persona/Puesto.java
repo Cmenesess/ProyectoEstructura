@@ -16,7 +16,7 @@ public class Puesto {
     private boolean disponiblidad;
     public Puesto(int numero) {
         this.numero = numero;
-        this.disponiblidad = false;
+        this.disponiblidad = true;
     }
     public Paciente getPaciente() {
         return paciente;
@@ -29,7 +29,7 @@ public class Puesto {
         return disponiblidad;
     }
     public void Disponibilidad(){
-        disponiblidad=true;
+        disponiblidad=false;
     }
     public Medico getMedicoTurnoo() {
         return MedicoTurnoo;

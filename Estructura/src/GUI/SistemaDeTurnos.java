@@ -23,8 +23,6 @@ import java.util.PriorityQueue;
  * @author carloshumbertomenesesmurillo
  */
 public class SistemaDeTurnos extends Application {
-    public ArrayList<Medico> doctores;
-    public PriorityQueue<Paciente> Pacientes;
     @Override
     public void start(Stage primaryStage) {
         Scene sc = new Scene(new gui().getRoot(), 830, 450);
