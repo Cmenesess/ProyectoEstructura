@@ -29,6 +29,20 @@ public class Paciente extends Persona{
     public void setTurno(int Turno) {
         this.Turno = Turno;
     }
+	public String getNombre() {
+        return nombre;
+    }
+
+    public String getApellido() {
+        return apellido;
+    }
+
+    public String getGenero() {
+        return genero;
+    }
+
+    public int getEdad() {
+        return edad;
 
     @Override
     public String toString() {

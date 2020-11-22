@@ -25,6 +25,17 @@ public class Medico extends Persona{
     public void NoDisponible() {
         disponibilidad=false;
     }
+	 public String getNombre() {
+        return nombre;
+    }
+
+    public String getApellido() {
+        return apellido;
+    }
+
+    public String getEspecialidad() {
+        return especialidad;
+    }
     
     
 }
