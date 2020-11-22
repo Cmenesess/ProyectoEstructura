@@ -20,6 +20,7 @@ public class opciones {
     private Button sturno = new Button("Sacar Turno");
     private Button cpuesto = new Button("Crear puesto");
     private Button eturno = new Button("Eliminar turno");
+    private Button AsignarMedico = new Button("Asignacion de medico a Puesto");
     private Button atender = new Button("Atender paciente");
     private Button doctor = new Button("Ingresar a un doctor");
     public opciones(){
@@ -35,7 +36,7 @@ public class opciones {
         sturno.setOnAction(e->{new formularioPaciente(LecturaDeArchivos.LecturaSintomas());});
         doctor.setOnAction(d-> new formularioDoctor());
         cpuesto.setOnAction(p-> {crearPuesto.crear(); new crearPuesto();});
-        eturno.setOnAction(d->{ 
+        AsignarMedico.setOnAction(d->{ 
             LinkedList<Puesto> puestos= Operatividad.getInstance().puestosSinAsignar();
             LinkedList<Medico> medicos=Operatividad.getInstance().MedicosSinAsignar();
             if(!puestos.isEmpty() && !medicos.isEmpty()){

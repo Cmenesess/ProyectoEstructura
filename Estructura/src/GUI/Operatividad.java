@@ -46,6 +46,7 @@ public class Operatividad {
         LinkedList<Puesto> disponibles=new LinkedList<>();
         for(Puesto p: puestos)
             if(!p.Asignacion()) disponibles.add(p);
+        System.out.println(disponibles);
         return disponibles;
     }
     public LinkedList<Medico> MedicosSinAsignar(){
@@ -53,6 +54,7 @@ public class Operatividad {
         for(Medico p: doctores){
              if(!p.Estado()) disponibles.add(p);
         }
+        System.out.println(disponibles);
         return disponibles;
     }
     
