@@ -14,6 +14,8 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.PriorityQueue;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -44,29 +46,43 @@ public class LecturaDeArchivos {
     }
     
     
-    public ArrayList<? extends Persona> LecturaPersonas(){
-        ArrayList<Persona> lista_Persona=new ArrayList<>();
+    public static PriorityQueue<Paciente> LecturaPaciente(){
+        PriorityQueue<Paciente> Pacien=new PriorityQueue<>((Paciente p1, Paciente p2)-> p1.getSintoma().getPrioridad()-p2.getSintoma().getPrioridad());
         FileReader f = null;
         try {
             f = new FileReader("src/Archivos/personas.txt");
             BufferedReader b = new BufferedReader(f);
             String cadena;
             while((cadena=b.readLine())!=null){
-                String[] cadenas=cadena.split("|");
-                Persona persona= CortarCadena(cadenas);
-                lista_Persona.add(persona);
+                String[] cadenas=cadena.split("/");
+                Paciente p=new Paciente(cadenas[0],cadenas[1],cadenas[2],Integer.parseInt(cadenas[3]),new Sintoma(cadenas[4],Integer.parseInt(cadenas[5])));
+                Pacien.add(p);
             }
         } catch (FileNotFoundException ex) {
             System.out.println(ex.getMessage());;
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
         }
-        return lista_Persona;
+        return Pacien;
     }
-    public Persona CortarCadena(String[] array){
-        if(array.length>3)return new Paciente(array[0],array[1],array[2],array[3],new Sintoma(array[4],Integer.parseInt(array[5])));
-        return new Medico(array[0],array[1],Especialidad.valueOf(array[2]));
-        
+    public static LinkedList<Puesto> LecturaPuestos(){
+        LinkedList<Puesto> puestos=new  LinkedList<>();
+        FileReader f = null;
+        try {
+            f = new FileReader("src/Archivos/puestos.txt");
+            BufferedReader b = new BufferedReader(f);
+            String cadena;
+            while((cadena=b.readLine())!=null){
+                String[] cadenas=cadena.split("/");
+                Puesto P= new Puesto(Integer.parseInt(cadenas[0]));
+                puestos.add(P);
+            }
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(LecturaDeArchivos.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(LecturaDeArchivos.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return puestos;
     }
     public static CircularDoublyLinkedList<String> leerArchivoVideos(){
         CircularDoublyLinkedList<String> video=new CircularDoublyLinkedList<>();

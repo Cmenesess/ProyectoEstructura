@@ -31,7 +31,6 @@ public class gui {
         root.setBottom(horarios);
         root.setTop(l);
         root.setPadding(new Insets(20, 20, 20, 20));
-        horarios.setPadding(new Insets(50, 50, 50, 50));
 
     }
 

@@ -10,13 +10,12 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import Persona.Medico;
 import java.util.ArrayList;
+import Persona.Paciente;
+import java.util.PriorityQueue;
 
-/**
- *
- * @author carloshumbertomenesesmurillo
- */
 public class SistemaDeTurnos extends Application {
-    private ArrayList<Medico> doctores;
+    public ArrayList<Medico> doctores;
+    public PriorityQueue<Paciente> Pacientes;
     @Override
     public void start(Stage primaryStage) {
         Scene sc = new Scene(new gui().getRoot(), 900, 450);
