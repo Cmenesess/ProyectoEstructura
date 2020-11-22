@@ -18,7 +18,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
-public class formularioPaciente implements formulario{
+public class formularioPaciente{
     private GridPane root;
     private ArrayList<Sintoma> sintomas;
 
