@@ -54,7 +54,7 @@ public class LecturaDeArchivos {
             BufferedReader b = new BufferedReader(f);
             String cadena;
             while((cadena=b.readLine())!=null){
-                String[] cadenas=cadena.split("/");
+                String[] cadenas=cadena.split(",");
                 Paciente p=new Paciente(cadenas[0],cadenas[1],cadenas[2],Integer.parseInt(cadenas[3]),new Sintoma(cadenas[4],Integer.parseInt(cadenas[5])));
                 Pacien.add(p);
             }
