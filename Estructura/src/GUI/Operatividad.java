@@ -31,6 +31,7 @@ public class Operatividad {
             puesto.setPaciente(Pacientes.poll());
         }
     }
+
     public int generadorTurnos(){
         int turno_actual=turno;
         ++turno;
@@ -44,8 +45,10 @@ public class Operatividad {
     }
     public LinkedList<Puesto> puestosSinAsignar(){
         LinkedList<Puesto> disponibles=new LinkedList<>();
-        for(Puesto p: puestos)
+        for(Puesto p: puestos){
+            System.out.println(p);
             if(!p.Asignacion()) disponibles.add(p);
+        }
         System.out.println(disponibles);
         return disponibles;
     }
@@ -54,7 +57,6 @@ public class Operatividad {
         for(Medico p: doctores){
              if(!p.Estado()) disponibles.add(p);
         }
-        System.out.println(disponibles);
         return disponibles;
     }
     

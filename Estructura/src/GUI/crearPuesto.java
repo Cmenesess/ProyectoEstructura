@@ -41,15 +41,16 @@ public class crearPuesto {
         try {
         FileWriter writer = new FileWriter("src/Archivos/puestos.txt");
         if(Operatividad.getInstance().puestos.isEmpty()){
-            Puesto pu = new Puesto(1);
+            Puesto pu = new Puesto(0);
             Operatividad.getInstance().puestos.add(pu);
             writer.write(pu.toString());
-        } 
-        Puesto p = Operatividad.getInstance().puestos.getLast();
-        int pos = Operatividad.getInstance().puestos.indexOf(p);
-        Puesto pu = new Puesto(pos+1);
-        Operatividad.getInstance().puestos.addLast(pu);
-        writer.write(pu.toString());
+        }else{ 
+            Puesto p = Operatividad.getInstance().puestos.getLast();
+            int pos = Operatividad.getInstance().puestos.indexOf(p);
+            Puesto pu = new Puesto(pos+1);
+            Operatividad.getInstance().puestos.addLast(pu);
+            writer.write(pu.toString());
+        }
     }
     catch (IOException e){
     System.err.println("ERROR EN LECTURA");
