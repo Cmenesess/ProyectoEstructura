@@ -15,7 +15,7 @@ public class opciones {
     private VBox root = new VBox(20);
     private Label texto = new Label("Escoja la opcion que desee: ");
     private Button sturno = new Button("Sacar Turno");
-    private Button cturno = new Button("Crear turno");
+    private Button cpuesto = new Button("Crear puesto");
     private Button eturno = new Button("Eliminar turno");
     private Button atender = new Button("Atender paciente");
     private Button doctor = new Button("Ingresar a un doctor");
@@ -28,9 +28,10 @@ public class opciones {
     public void llenar(){
         root.setPadding(new Insets(20,20,20,20));
         root.setId("box");
-        root.getChildren().addAll(texto, sturno, cturno, eturno, atender, doctor);
+        root.getChildren().addAll(texto, sturno, cpuesto, eturno, atender, doctor);
         sturno.setOnAction(e->{new formularioPaciente(LecturaDeArchivos.LecturaSintomas());});
         doctor.setOnAction(d-> new formularioDoctor());
+		cpuesto.setOnAction(p-> {crearPuesto.crear(); new crearPuesto();});
         Stage window = new Stage();
         window.setTitle("OPCIONES");
         window.setMinHeight(100);
