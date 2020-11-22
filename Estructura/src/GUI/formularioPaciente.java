@@ -2,6 +2,7 @@
 package GUI;
 
 
+import Persona.Paciente;
 import Persona.Sintoma;
 import java.util.ArrayList;
 import javafx.collections.FXCollections;
@@ -61,15 +62,15 @@ public class formularioPaciente implements formulario{
         window.show();
         ok.setOnAction(e->{
             String nombre=((TextField)root.getChildren().get(1)).getText();
-            System.out.println(nombre);
             String Apellido=((TextField)root.getChildren().get(3)).getText();
-            System.out.println(Apellido);
             String Genero=((TextField)root.getChildren().get(7)).getText();
-            Sintoma sintoma=(Sintoma)((ComboBox)root.getChildren().get(8)).getValue();
-            if(!nombre.isBlank()&&!Apellido.isBlank() &&  !Genero.isBlank() ){
+            Sintoma sintoma=(Sintoma)((ComboBox)root.getChildren().get(9)).getValue();
+            if(!nombre.isBlank()&&!Apellido.isBlank() &&!Genero.isBlank() ){
                 try{
-                    String edad=((TextField)root.getChildren().get(5)).getText();
-                    
+                    int edad=Integer.parseInt(((TextField)root.getChildren().get(5)).getText());
+                    Paciente p=new Paciente(nombre,Apellido,Genero,edad,sintoma);
+                    Operatividad.operatividad.agregarCola(p);
+                    mostrarAlerta("Su turno es: "+p.getTurno());
                 }catch(NumberFormatException ex){
                     mostrarAlerta("No ha ingresado una edad valida");
                 }

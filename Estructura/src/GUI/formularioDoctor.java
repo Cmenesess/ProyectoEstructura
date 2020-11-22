@@ -55,8 +55,8 @@ public class formularioDoctor{
     public void crearDoctor(){
         String nom = nombre.getText();
         String esp = especialidad.getText();
-        String identi = id.getText();
-        r.getDoctores().add(new Medico(nom, esp, identi));
+        //String identi = id.getText();
+        //r.getDoctores().add(new Medico(nom, esp, identi));
     }
     public GridPane getRoot(){
         return root;
