@@ -34,7 +34,7 @@ public class opciones {
         root.getChildren().addAll(texto, sturno, cpuesto, eturno, atender, doctor);
         sturno.setOnAction(e->{new formularioPaciente(LecturaDeArchivos.LecturaSintomas());});
         doctor.setOnAction(d-> new formularioDoctor());
-        cpuesto.setOnAction(p-> {crearPuesto.crear(); new crearPuesto();});
+        cpuesto.setOnAction(p-> {new crearPuesto();});
         eturno.setOnAction(d->{ 
             LinkedList<Puesto> puestos= Operatividad.getInstance().puestosSinAsignar();
             LinkedList<Medico> medicos=Operatividad.getInstance().MedicosSinAsignar();
@@ -47,6 +47,7 @@ public class opciones {
                 alert.show();
             }
         });
+        atender.setOnAction(a->new atender());
         Stage window = new Stage();
         window.setTitle("OPCIONES");
         window.setMinHeight(100);

@@ -43,6 +43,7 @@ public class Paciente extends Persona{
 
     public int getEdad() {
         return edad;
+    }
 
     @Override
     public String toString() {
