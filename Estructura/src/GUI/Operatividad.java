@@ -59,4 +59,9 @@ public class Operatividad {
         ++turno;
         return turno_actual;
     }
+    
+    public void eliminarPuesto(Puesto p){
+        puestos.remove(p);
+    }
+    
 }
