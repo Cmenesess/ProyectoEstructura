@@ -1,11 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package GUI;
 
-import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -14,13 +9,10 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import GUI.formularioPaciente;
 import estructura.LecturaDeArchivos;
+import javafx.geometry.Insets;
 
-/**
- *
- * @author Xavier
- */
 public class opciones {
-    private VBox root = new VBox();
+    private VBox root = new VBox(20);
     private Label texto = new Label("Escoja la opcion que desee: ");
     private Button sturno = new Button("Sacar Turno");
     private Button cturno = new Button("Crear turno");
@@ -34,14 +26,17 @@ public class opciones {
         return root;
     }
     public void llenar(){
+        root.setPadding(new Insets(20,20,20,20));
+        root.setId("box");
         root.getChildren().addAll(texto, sturno, cturno, eturno, atender, doctor);
         sturno.setOnAction(e->{new formularioPaciente(LecturaDeArchivos.LecturaSintomas());
         });
         Stage window = new Stage();
         window.setTitle("OPCIONES");
-        window.setMinHeight(400);
-        window.setMinWidth(400);
-        Scene scene = new Scene((Parent)root,200,200);
+        window.setMinHeight(100);
+        window.setMinWidth(100);
+        Scene scene = new Scene((Parent)root,250,300);
+        scene.getStylesheets().add("css/estilos.css");
         window.setScene(scene);
         window.show();
     }

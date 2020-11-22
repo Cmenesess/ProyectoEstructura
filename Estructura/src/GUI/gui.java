@@ -1,56 +1,43 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package GUI;
 
-import java.awt.Desktop.Action;
 import java.time.LocalDateTime;
 import javafx.application.Platform;
-import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableView;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
-import javafx.stage.Stage;
-import GUI.opciones;
-/**
- *
- * @author Xavier
- */
+import javafx.geometry.Insets;
 
-public class gui{
-    private VBox root = new VBox();
+public class gui {
+
     private Label reloj = new Label();
     Thread cl = new Thread(new Time(reloj));
-    private BorderPane p = new BorderPane();
-    private Label horarios = new Label("Horario de atención de Lunes a Viernes de 10 a 18 hs/ Sabados");
+    private BorderPane root = new BorderPane();
+    private Label horarios = new Label("                                     Horario de atención de Lunes a Viernes de 10 a 18 hs/ Sabados");
     private TableView turnos = new TableView();
     private Button opt = new Button("OPCIONES");
     Thread hilo = new Thread(new Time(reloj));
-    
-    
-    public gui(){
+
+    public gui() {
         hilo.start();
-        root.getChildren().addAll(reloj, p, horarios);
-        VBox cont=new VBox();
-        cont.setId("video");
-        cont.setAlignment(Pos.CENTER);
-        cont.getChildren().addAll((new video().getVideo()));
-        p.setRight(turnos);
-        p.setLeft(opt);
-        opt.setOnAction(o->new opciones());
-        p.setCenter(cont);
-        
+        BorderPane l = new BorderPane();
+        l.setRight(reloj);
+        l.setLeft(opt);
+        root.setId("main");
+        root.setCenter(new video().getVideo());
+        root.setRight(turnos);
+        opt.setOnAction(o -> new opciones());
+        root.setBottom(horarios);
+        root.setTop(l);
+        root.setPadding(new Insets(20, 20, 20, 20));
+        horarios.setPadding(new Insets(50, 50, 50, 50));
+
     }
-    public VBox getRoot(){
+
+    public BorderPane getRoot() {
         return root;
-        }
+    }
 
     private class Time implements Runnable {
 
@@ -64,7 +51,7 @@ public class gui{
 
         @Override
         public void run() {
-                while(0<1){
+            while (0 < 1) {
                 try {
                     tp = LocalDateTime.now();
                     int hour = tp.getHour();
@@ -72,15 +59,15 @@ public class gui{
                     int second = tp.getSecond();
 
                     Platform.runLater(() -> {
-                        lbl.setText(hour+":"+minute+":"+second);
-                        
+                        lbl.setText(hour + ":" + minute + ":" + second);
+
                     });
                     Thread.sleep(1000);
                 } catch (InterruptedException e) {
                     System.out.println(e.getMessage());
                 }
-                }
+            }
         }
-    
-}
+
+    }
 }

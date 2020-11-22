@@ -9,6 +9,6 @@ package GUI;
  *
  * @author Xavier
  */
-public interface formulario {
+public interface Formulario {
     
 }

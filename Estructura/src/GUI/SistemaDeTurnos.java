@@ -6,15 +6,10 @@
 package GUI;
 
 import javafx.application.Application;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import Persona.Medico;
 import java.util.ArrayList;
-import Persona.Paciente;
 
 /**
  *
@@ -24,7 +19,7 @@ public class SistemaDeTurnos extends Application {
     private ArrayList<Medico> doctores;
     @Override
     public void start(Stage primaryStage) {
-        Scene sc = new Scene(new gui().getRoot(), 830, 450);
+        Scene sc = new Scene(new gui().getRoot(), 900, 450);
         sc.getStylesheets().add("css/estilos.css");
         primaryStage.setTitle("Sistema de Turnos");
         primaryStage.setScene(sc);

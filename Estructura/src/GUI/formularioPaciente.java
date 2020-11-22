@@ -15,7 +15,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
-public class formularioPaciente implements formulario{
+public class formularioPaciente implements Formulario{
     private GridPane root;
     private ArrayList<Sintoma> sintomas;
 
@@ -50,9 +50,10 @@ public class formularioPaciente implements formulario{
         root.add(combo, 1, 4); 
         Stage window = new Stage();
         window.setTitle("Formulario Paciente");
-        window.setMinHeight(400);
-        window.setMinWidth(400);
-        Scene scene = new Scene((Parent)root,200,200);
+        window.setMinHeight(100);
+        window.setMinWidth(100);
+        Scene scene = new Scene((Parent)root,300,250);
+        scene.getStylesheets().add("css/estilos.css");
         window.setScene(scene);
         window.show();
     }

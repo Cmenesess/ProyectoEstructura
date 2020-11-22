@@ -30,3 +30,15 @@
     -fx-background-color: #d7f0f7;
 }
 
+#hora {
+    -fx-font-size: 30px;
+}
+
+#main {
+    -fx-background-color: #d7f0f7;
+}
+
+#text {
+    -fx-font-weight: bold;
+    -fx-font-family: "Arial Narrow";
+}
