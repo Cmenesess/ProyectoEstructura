@@ -8,7 +8,7 @@ public class Sintoma {
         this.sintoma=sintoma;
         this.prioridad = prioridad;
     }
-
+    
     public String getSintoma() {
         return sintoma;
     }

@@ -10,8 +10,6 @@ import Persona.Paciente;
 import java.util.PriorityQueue;
 
 public class SistemaDeTurnos extends Application {
-    public ArrayList<Medico> doctores;
-    public PriorityQueue<Paciente> Pacientes;
     @Override
     public void start(Stage primaryStage) {
         Scene sc = new Scene(new gui().getRoot(), 900, 450);

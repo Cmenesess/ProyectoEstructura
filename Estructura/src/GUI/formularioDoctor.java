@@ -1,6 +1,7 @@
 
 package GUI;
 
+import Persona.Medico;
 import javafx.geometry.Insets;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -10,7 +11,11 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
-public class formularioDoctor{
+/**
+ *
+ * @author Xavier
+ */
+public class formularioDoctor extends Formulario{
     private GridPane root = new GridPane();
     private TextField nombre = new TextField("Ingrese su nombre");
     private TextField especialidad = new TextField("Ingrese su especialidad");
@@ -32,17 +37,11 @@ public class formularioDoctor{
         root.add(new Label("Identificación: "), 0, 2);
         root.add(id, 1, 2);
         root.add(ingresar, 1,3);
-        Stage window = new Stage();
-        window.setTitle("Ingresar doctor");
-        window.setMinHeight(400);
-        window.setMinWidth(400);
-        Scene scene = new Scene((Parent)root,400,400);
-        window.setScene(scene);
-        window.show();
+        CrearVentana();
     }
     public void crearDoctor(){
-        String nom = nombre.getText();
-        String esp = especialidad.getText();
+        Medico m = new Medico(nombre.getText(), especialidad.getText(), id.getText());
+        Operatividad.getInstance().doctores.add(m);
     }
     public GridPane getRoot(){
         return root;

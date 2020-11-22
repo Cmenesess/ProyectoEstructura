@@ -40,15 +40,15 @@ public class crearPuesto {
     public static void crear(){
         try {
         FileWriter writer = new FileWriter("src/Archivos/puestos.txt");
-        if(Operatividad.operatividad.puestos.isEmpty()){
+        if(Operatividad.getInstance().puestos.isEmpty()){
             Puesto pu = new Puesto(1);
-            Operatividad.operatividad.puestos.add(pu);
+            Operatividad.getInstance().puestos.add(pu);
             writer.write(pu.toString());
         } 
-        Puesto p = Operatividad.operatividad.puestos.getLast();
-        int pos = Operatividad.operatividad.puestos.indexOf(p);
+        Puesto p = Operatividad.getInstance().puestos.getLast();
+        int pos = Operatividad.getInstance().puestos.indexOf(p);
         Puesto pu = new Puesto(pos+1);
-        Operatividad.operatividad.puestos.addLast(pu);
+        Operatividad.getInstance().puestos.addLast(pu);
         writer.write(pu.toString());
     }
     catch (IOException e){

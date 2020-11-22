@@ -8,19 +8,13 @@ import java.util.ArrayList;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
-import javafx.stage.Stage;
 
-
-public class formularioPaciente implements Formulario{
-    private GridPane root;
+public class formularioPaciente extends Formulario{
     private ArrayList<Sintoma> sintomas;
 
     public formularioPaciente(ArrayList<Sintoma> sintomas){
@@ -54,14 +48,7 @@ public class formularioPaciente implements Formulario{
         root.add(new Label("Sintoma: "), 0, 4);
         root.add(combo, 1, 4);
         root.add(ok,1,5);
-        Stage window = new Stage();
-        window.setTitle("Formulario Paciente");
-        window.setMinHeight(100);
-        window.setMinWidth(100);
-        Scene scene = new Scene((Parent)root,300,250);
-        scene.getStylesheets().add("css/estilos.css");
-        window.setScene(scene);
-        window.show();
+        CrearVentana();
         ok.setOnAction(e->{
             String nombre=((TextField)root.getChildren().get(1)).getText();
             String Apellido=((TextField)root.getChildren().get(3)).getText();
@@ -71,8 +58,9 @@ public class formularioPaciente implements Formulario{
                 try{
                     int edad=Integer.parseInt(((TextField)root.getChildren().get(5)).getText());
                     Paciente p=new Paciente(nombre,Apellido,Genero,edad,sintoma);
-                    Operatividad.operatividad.agregarCola(p);
+                    Operatividad.getInstance().agregarCola(p);
                     mostrarAlerta("Su turno es: "+p.getTurno());
+                    window.close();
                 }catch(NumberFormatException ex){
                     mostrarAlerta("No ha ingresado una edad valida");
                 }
@@ -87,15 +75,5 @@ public class formularioPaciente implements Formulario{
 
     public GridPane getRoot() {
         return root;
-    }
-    private void mostrarAlerta(String mensaje){
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Information Dialog");
-        alert.setHeaderText(mensaje);
-        alert.show();
-    }
-    
-    
-    
-    
+    }  
 }
