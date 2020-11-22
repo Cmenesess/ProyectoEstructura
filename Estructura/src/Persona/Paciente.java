@@ -11,5 +11,13 @@ public class Paciente extends Persona{
         this.genero = genero;
         this.edad = edad;
     }
+
+    public Sintoma getSintoma() {
+        return sintoma;
+    }
+
+    public void setSintoma(Sintoma sintoma) {
+        this.sintoma = sintoma;
+    }
     
 }

@@ -9,6 +9,8 @@ import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -32,6 +34,7 @@ public class formularioPaciente implements formulario{
         TextField lastnametxt = new TextField();
         TextField agetxt = new TextField();
         TextField genretxt = new TextField();
+        Button ok = new Button("Confirmar");
         ObservableList<Sintoma> Sintomas = FXCollections.observableList(sintomas);
         ComboBox combo = new ComboBox(Sintomas);
         combo.getSelectionModel().selectFirst();
@@ -47,7 +50,8 @@ public class formularioPaciente implements formulario{
         root.add(new Label("Genero: "), 0, 3);
         root.add(genretxt, 1, 3);
         root.add(new Label("Sintoma: "), 0, 4);
-        root.add(combo, 1, 4); 
+        root.add(combo, 1, 4);
+        root.add(ok,1,5);
         Stage window = new Stage();
         window.setTitle("Formulario Paciente");
         window.setMinHeight(400);
@@ -55,10 +59,37 @@ public class formularioPaciente implements formulario{
         Scene scene = new Scene((Parent)root,200,200);
         window.setScene(scene);
         window.show();
+        ok.setOnAction(e->{
+            String nombre=((TextField)root.getChildren().get(1)).getText();
+            System.out.println(nombre);
+            String Apellido=((TextField)root.getChildren().get(3)).getText();
+            System.out.println(Apellido);
+            String Genero=((TextField)root.getChildren().get(7)).getText();
+            Sintoma sintoma=(Sintoma)((ComboBox)root.getChildren().get(8)).getValue();
+            if(!nombre.isBlank()&&!Apellido.isBlank() &&  !Genero.isBlank() ){
+                try{
+                    String edad=((TextField)root.getChildren().get(5)).getText();
+                    
+                }catch(NumberFormatException ex){
+                    mostrarAlerta("No ha ingresado una edad valida");
+                }
+            }else{
+                mostrarAlerta("No se olvide de dejar ningun campo vacio");
+            }
+        }
+        );
+        
+        
     }
 
     public GridPane getRoot() {
         return root;
+    }
+    private void mostrarAlerta(String mensaje){
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Information Dialog");
+        alert.setHeaderText(mensaje);
+        alert.show();
     }
     
     
