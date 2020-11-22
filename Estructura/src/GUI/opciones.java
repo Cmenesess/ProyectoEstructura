@@ -12,7 +12,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import GUI.Formulario;
+import GUI.formularioPaciente;
 
 /**
  *
@@ -34,7 +34,6 @@ public class opciones {
     }
     public void llenar(){
     root.getChildren().addAll(texto, sturno, cturno, eturno, atender, doctor);
-    texto.setAlignment(Pos.CENTER);
     Stage window = new Stage();
     window.setTitle("OPCIONES");
     window.setMinHeight(400);
