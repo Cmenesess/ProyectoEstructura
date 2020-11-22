@@ -5,7 +5,6 @@
  */
 package estructura;
 
-import Collecciones.ArrayList;
 import Collecciones.CircularDoublyLinkedList;
 import Collecciones.CircularSimplyLinkedList;
 import Collecciones.List;
@@ -14,6 +13,7 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -22,21 +22,18 @@ import java.util.logging.Logger;
  * @author carloshumbertomenesesmurillo
  */
 public class LecturaDeArchivos {
-    public String cadena;
-    public String ruta;
-    public LecturaDeArchivos(String ruta){
-        this.ruta=ruta;
-    }
-    public List<Sintoma> LecturaSintomas(){
-        List<Sintoma> lista_sintomas=new ArrayList<>();
+
+    public static ArrayList<Sintoma> LecturaSintomas(){
+        ArrayList<Sintoma> lista_sintomas=new ArrayList<>();
         FileReader f = null;
         try {
-            f = new FileReader(ruta);
+            f = new FileReader("src/Archivos/sintoma.txt");
             BufferedReader b = new BufferedReader(f);
+            String cadena;
             while((cadena=b.readLine())!=null){
-                String[] cadenas=cadena.split("|");
+                String[] cadenas=cadena.split("/");
                 Sintoma sintoma= new Sintoma(cadenas[0],Integer.parseInt(cadenas[1]));
-                lista_sintomas.addLast(sintoma);
+                lista_sintomas.add(sintoma);
             }
         } catch (FileNotFoundException ex) {
             Logger.getLogger(LecturaDeArchivos.class.getName()).log(Level.SEVERE, null, ex);
@@ -47,16 +44,17 @@ public class LecturaDeArchivos {
     }
     
     
-    public List<? extends Persona> LecturaPersonas(){
-        List<Persona> lista_Persona=new ArrayList<>();
+    public ArrayList<? extends Persona> LecturaPersonas(){
+        ArrayList<Persona> lista_Persona=new ArrayList<>();
         FileReader f = null;
         try {
-            f = new FileReader(ruta);
+            f = new FileReader("src/Archivos/personas.txt");
             BufferedReader b = new BufferedReader(f);
+            String cadena;
             while((cadena=b.readLine())!=null){
                 String[] cadenas=cadena.split("|");
                 Persona persona= CortarCadena(cadenas);
-                lista_Persona.addLast(persona);
+                lista_Persona.add(persona);
             }
         } catch (FileNotFoundException ex) {
             System.out.println(ex.getMessage());;

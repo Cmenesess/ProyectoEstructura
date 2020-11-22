@@ -13,6 +13,7 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import GUI.formularioPaciente;
+import estructura.LecturaDeArchivos;
 
 /**
  *
@@ -33,13 +34,15 @@ public class opciones {
         return root;
     }
     public void llenar(){
-    root.getChildren().addAll(texto, sturno, cturno, eturno, atender, doctor);
-    Stage window = new Stage();
-    window.setTitle("OPCIONES");
-    window.setMinHeight(400);
-    window.setMinWidth(400);
-    Scene scene = new Scene((Parent)root,200,200);
-    window.setScene(scene);
-    window.show();
+        root.getChildren().addAll(texto, sturno, cturno, eturno, atender, doctor);
+        sturno.setOnAction(e->{new formularioPaciente(LecturaDeArchivos.LecturaSintomas());
+        });
+        Stage window = new Stage();
+        window.setTitle("OPCIONES");
+        window.setMinHeight(400);
+        window.setMinWidth(400);
+        Scene scene = new Scene((Parent)root,200,200);
+        window.setScene(scene);
+        window.show();
     }
 }

@@ -21,4 +21,10 @@ public class Sintoma {
     public void setPrioridad(int prioridad) {
         this.prioridad = prioridad;
     }
+
+    @Override
+    public String toString() {
+        return sintoma;
+    }
+    
 }

@@ -22,7 +22,7 @@ public class video {
     private MediaView mediaView;
     
     public video(){
-        LecturaDeArchivos l = new LecturaDeArchivos("src/Archivos/videos.txt");
+        LecturaDeArchivos l = new LecturaDeArchivos();
         CircularDoublyLinkedList<String> csl = l.leerArchivoVideos();
         crearMediaView(csl);
     }
@@ -42,6 +42,14 @@ public class video {
     public MediaView crearMediaView(CircularDoublyLinkedList dirs){
         mediaView = new MediaView();
         correrVideo(mediaView,dirs.iterator());
+        mediaView.setOnMouseClicked(e->{
+            if(mediaView.getMediaPlayer().getStatus()==MediaPlayer.Status.PLAYING){
+                mediaView.getMediaPlayer().pause();
+            }else if(mediaView.getMediaPlayer().getStatus()==MediaPlayer.Status.PAUSED){
+                
+                mediaView.getMediaPlayer().play();
+            }
+        });
         mediaView.setFitHeight(450);
         mediaView.setFitWidth(450);
         return mediaView;
