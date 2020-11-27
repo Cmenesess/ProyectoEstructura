@@ -54,12 +54,20 @@ public class opciones {
                 alert.show();
             }
         });
-        atender.setOnAction(a->new atender(Operatividad.getInstance().puestoDisponible()));
+        atender.setOnAction(a->{if(!Operatividad.getInstance().getPuestos().isEmpty()){
+            new atender(Operatividad.getInstance().getPuestos().get(0));
+        }else{
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Information Dialog");
+                alert.setHeaderText("Actualmente no hay turnos para ser atendidos");
+                alert.show();
+        }
+        });
         Stage window = new Stage();
         window.setTitle("OPCIONES");
         window.setMinHeight(100);
         window.setMinWidth(100);
-        Scene scene = new Scene((Parent)root,250,350);
+        Scene scene = new Scene((Parent)root,350,450);
         scene.getStylesheets().add("css/estilos.css");
         window.setScene(scene);
         window.show();
