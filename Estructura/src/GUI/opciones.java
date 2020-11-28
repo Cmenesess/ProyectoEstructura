@@ -7,7 +7,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import GUI.formularioPaciente;
 import Persona.*;
 import estructura.LecturaDeArchivos;
 import java.util.LinkedList;
@@ -41,7 +40,12 @@ public class opciones {
         pturno.setOnAction(e ->{
             new EliminarPuesto();
         });
-        cpuesto.setOnAction(p-> {crearPuesto.crear(); new crearPuesto();});
+        cpuesto.setOnAction(p-> {crearPuesto.crear();
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Information Dialog");
+                alert.setHeaderText("El puesto fue creado");
+                alert.show();
+        });
         AsignarMedico.setOnAction(d->{ 
             LinkedList<Puesto> puestos= Operatividad.getInstance().puestosSinAsignar();
             LinkedList<Medico> medicos=Operatividad.getInstance().MedicosSinAsignar();

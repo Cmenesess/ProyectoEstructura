@@ -3,7 +3,6 @@ package GUI;
 import Persona.Paciente;
 import Persona.Puesto;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 import javafx.application.Platform;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
