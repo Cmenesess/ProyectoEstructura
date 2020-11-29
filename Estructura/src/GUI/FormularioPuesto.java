@@ -17,8 +17,8 @@ import javafx.scene.control.Label;
  * @author carloshumbertomenesesmurillo
  */
 public class FormularioPuesto extends Formulario {
-    public LinkedList<Puesto> PuestoDisponible;
-    public LinkedList<Medico> DoctoresDisponibles;
+    private LinkedList<Puesto> PuestoDisponible;
+    private  LinkedList<Medico> DoctoresDisponibles;
     public FormularioPuesto(LinkedList<Puesto> PuestoDisponible,LinkedList<Medico> DoctoresDisponibles){
         this.PuestoDisponible=PuestoDisponible;
         this.DoctoresDisponibles=DoctoresDisponibles;

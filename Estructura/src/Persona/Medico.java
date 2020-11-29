@@ -2,9 +2,9 @@
 package Persona;
 
 public class Medico extends Persona{
-    public String especialidad;
-    public boolean asignacion;
-    public boolean disponibilidad;
+    private String especialidad;
+    private boolean asignacion;
+    private boolean disponibilidad;
     
     public Medico( String nombre, String apellido,String especialidad){
         super(nombre, apellido);
@@ -40,6 +40,10 @@ public class Medico extends Persona{
     @Override
     public String toString() {
         return nombre;
+    }
+
+    public boolean isAsignacion() {
+        return asignacion;
     }
     
     

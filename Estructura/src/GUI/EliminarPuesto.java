@@ -19,7 +19,7 @@ public class EliminarPuesto {
     Button eliminar;
     
     public EliminarPuesto(){
-        createContent(Operatividad.getInstance().puestos);
+        createContent(Operatividad.getInstance().getPuestos());
     }
     
     public void createContent(LinkedList<Puesto> slot){

@@ -13,14 +13,22 @@ import java.util.Iterator;
  */
 public class CircularDoublyLinkedList<E> implements List<E>,Iterable<E>{
     private class Node<E> {
-        public E data;
-        public Node<E> previous,next;
-        public Node(E elemento){
+        private E data;
+        private Node<E> previous,next;
+        private Node(E elemento){
             data=elemento;
         }
     }
-    public Node<E> raiz;
-    public int current;
+    private Node<E> raiz;
+    private int current;
+
+    public Node<E> getRaiz() {
+        return raiz;
+    }
+
+    public int getCurrent() {
+        return current;
+    }
     
     @Override
     public Iterator<E> iterator() {

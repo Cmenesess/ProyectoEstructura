@@ -32,7 +32,6 @@ public class opciones {
     public void llenar(){
         root.setPadding(new Insets(20,20,20,20));
         root.setId("box");
-
         root.getChildren().addAll(texto, sturno, cpuesto, eturno, pturno, atender, doctor,AsignarMedico);
         sturno.setOnAction(e->{new formularioPaciente(LecturaDeArchivos.LecturaSintomas());});
         doctor.setOnAction(d-> new formularioDoctor());
