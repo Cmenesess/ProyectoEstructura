@@ -17,6 +17,7 @@ public class Operatividad {
     private Operatividad(){
         this.Pacientes = LecturaDeArchivos.LecturaPaciente();
         puestos=LecturaDeArchivos.LecturaPuestos();
+        System.out.println(puestos);
         TurnosIniciales();
         doctores = LecturaDeArchivos.LecturaMedicos();
         puestos.addAll(LecturaDeArchivos.LecturaPuestosConMedicos());

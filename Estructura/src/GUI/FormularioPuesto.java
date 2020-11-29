@@ -37,7 +37,7 @@ public class FormularioPuesto extends Formulario {
         ok.setOnAction(e->{
            Puesto puesto=(Puesto)((ComboBox)root.getChildren().get(1)).getValue();
            Medico medico=(Medico)((ComboBox)root.getChildren().get(3)).getValue();
-           medico.EstadoAsignado();
+           medico.setEstado(true);
            puesto.setMedicoTurnoo(medico);
            Operatividad.getInstance().generarPuesto(puesto);
            mostrarAlerta("Se ha asignado exitosamente el puesto al medico");

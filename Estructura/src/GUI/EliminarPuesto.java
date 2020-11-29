@@ -1,12 +1,16 @@
 
 package GUI;
 
+import Persona.Medico;
 import Persona.Puesto;
 import java.util.LinkedList;
+import java.util.Optional;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
@@ -40,16 +44,28 @@ public class EliminarPuesto {
         scene.getStylesheets().add("css/estilos.css");
         stage.setScene(scene);
         stage.show();
-        
         eliminar.setOnAction(e ->{
             Puesto puesto = (Puesto) puestos.getValue();
+            Medico medico= puesto.getMedicoTurnoo();
+            if(medico!=null){
+                crearAlerta(puesto);
+            }
             Operatividad.getInstance().eliminarPuesto(puesto);
             stage.close();
         });
-        
-        
-               
     }
-    
-    
+    public void crearAlerta(Puesto p){
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setHeaderText(null);
+        alert.setTitle("Confirmación");
+        alert.setContentText("En ese puesto esta el doctor asignado "+p.getMedicoTurnoo());
+        Optional<ButtonType> action = alert.showAndWait();
+        if (action.get() == ButtonType.OK) {
+            Operatividad.getInstance().eliminarPuesto(p);
+            p.getMedicoTurnoo().setEstado(false);
+            if(p.getPaciente()!=null){
+                Operatividad.getInstance().agregarCola(p.getPaciente());
+            }
+        }
+    }
 }

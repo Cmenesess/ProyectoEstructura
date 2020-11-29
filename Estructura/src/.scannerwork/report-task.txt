@@ -2,5 +2,5 @@ projectKey=GrupoProyecto13EDP2:SistemadeTurnos
 serverUrl=http://200.9.176.59:9000
 serverVersion=7.7.0.23042
 dashboardUrl=http://200.9.176.59:9000/dashboard?id=GrupoProyecto13EDP2%3ASistemadeTurnos
-ceTaskId=AXYSNZ582njepCnyV4zu
-ceTaskUrl=http://200.9.176.59:9000/api/ce/task?id=AXYSNZ582njepCnyV4zu
+ceTaskId=AXYSmSzD2njepCnyV4z2
+ceTaskUrl=http://200.9.176.59:9000/api/ce/task?id=AXYSmSzD2njepCnyV4z2
