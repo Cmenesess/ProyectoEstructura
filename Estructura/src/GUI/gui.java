@@ -35,6 +35,10 @@ public class gui {
         actualizarTableView();
     }
 
+    public static TableView getTurnos() {
+        return turnos;
+    }
+
     public BorderPane getRoot() {
         return root;
     }
