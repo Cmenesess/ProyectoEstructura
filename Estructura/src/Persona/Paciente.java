@@ -2,10 +2,10 @@
 package Persona;
 
 public class Paciente extends Persona{
-    String genero;
-    int edad;
-    Sintoma sintoma;
-    int Turno;
+    private String genero;
+    private int edad;
+    private Sintoma sintoma;
+    private int Turno;
     
     public Paciente(String nombre, String apellido, String genero, int edad,Sintoma sintoma){
         super(nombre, apellido);

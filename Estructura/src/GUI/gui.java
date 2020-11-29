@@ -84,17 +84,17 @@ public class gui {
         slot.setCellValueFactory(new PropertyValueFactory<>("numero"));
         table.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
         table.getColumns().addAll(turn, slot);
-
         return table;
     }
     
     public static void actualizarTableView(){
         turnos.getItems().clear();        
         for (Puesto p: Operatividad.getInstance().getPuestos()){
-            if(!p.Activo()){
+            if(!p.Actividad()){
                 turnos.getItems().add(p);
             }
         }
     }
+    
     
 }

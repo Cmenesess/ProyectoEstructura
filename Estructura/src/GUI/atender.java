@@ -22,6 +22,7 @@ public class atender {
     Label mid = new Label("Por lo que se le recomienda tomar la siguiente medicina: ");
     Button ingresar = new Button("Enviar Receta");
     public atender(Puesto p){
+        this.p=p;
         llenar();
     }
     public void llenar(){
@@ -33,29 +34,35 @@ public class atender {
         window.setMinHeight(400);
         window.setMinWidth(400);
         Scene scene = new Scene((Parent)root,400,400);
-		scene.getStylesheets().add("css/estilos.css");
+        scene.getStylesheets().add("css/estilos.css");
         window.setScene(scene);
         window.show();
+        ingresar.setOnAction(a->{     
+            generarReceta();
+            Operatividad.getInstance().generarPuesto(p);
+            window.close();
+            
+        });
     }
 
-    public void generarReceta(Puesto pu){
-        Medico d = pu.getMedicoTurnoo();
-        Paciente p = pu.getPaciente();
-        
+    public void generarReceta(){
+        Medico d = p.getMedicoTurnoo();
+        Paciente P = p.getPaciente();
         String apellidoDoc = d.getApellido();
-        String apellidoPaciente = p.getApellido();
-        try (FileWriter writer = new FileWriter("src/Archivos/recetas.txt")){
+        String apellidoPaciente = P.getApellido();
+        try {
+        FileWriter writer = new FileWriter("src/Archivos/recetas.txt");
         String res = ("El doctor " + apellidoDoc + " le receta al Sr/Sra "+ apellidoPaciente +  medicina.getText()  + " debido a su " + enfermedad.getText() );
+        }catch (IOException e){
+            System.err.println("ERROR EN LECTURA");
         }
-        catch (IOException e){
-        System.err.println("ERROR EN LECTURA");
-        }
-}
+    }
 	public String textoCaso(Puesto p){
-            Paciente pac = p.getPaciente();
-            int Edad = pac.getEdad();
-            String enf = pac.getSintoma().toString();
-            String t = ("El paciente " + pac.getNombre() + " " + pac.getApellido()+ " de "+ Integer.toString(Edad)+(" años de edad presenta")+enf);
-            return t;
+        Paciente pac = p.getPaciente();
+        int Edad = pac.getEdad();
+        String enf = pac.getSintoma().toString();
+        String t = ("El paciente " + pac.getNombre() + " " + pac.getApellido()+ " de "+ Integer.toString(Edad)+(" años de edad presenta")+enf);
+        return t;
+
     }
 }

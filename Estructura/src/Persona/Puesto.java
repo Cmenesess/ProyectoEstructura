@@ -16,10 +16,16 @@ public class Puesto {
     public void setPaciente(Paciente paciente) {
         this.paciente = paciente;
     }
-    public boolean Activo(){
+    public boolean Actividad(){
         return disponiblidad;
     }
-    public void Disponibilidad(){
+    public void SinPaciente(){
+        paciente=null;
+    }
+    public void Disponible(){
+         disponiblidad=true;
+    }
+    public void NoDisponible(){
         disponiblidad=false;
     }
     public Medico getMedicoTurnoo() {

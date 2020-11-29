@@ -18,7 +18,6 @@ public class opciones {
     private Label texto = new Label("Escoja la opcion que desee: ");
     private Button sturno = new Button("Sacar Turno");
     private Button cpuesto = new Button("Crear puesto");
-    private Button eturno = new Button("Eliminar turno");
     private Button AsignarMedico = new Button("Asignacion de medico a Puesto");
     private Button pturno = new Button("Eliminar puesto");
     private Button atender = new Button("Atender paciente");
@@ -32,7 +31,8 @@ public class opciones {
     public void llenar(){
         root.setPadding(new Insets(20,20,20,20));
         root.setId("box");
-        root.getChildren().addAll(texto, sturno, cpuesto, eturno, pturno, atender, doctor,AsignarMedico);
+
+        root.getChildren().addAll(texto, sturno, cpuesto, pturno, atender, doctor,AsignarMedico);
         sturno.setOnAction(e->{new formularioPaciente(LecturaDeArchivos.LecturaSintomas());});
         doctor.setOnAction(d-> new formularioDoctor());
 		cpuesto.setOnAction(p-> {crearPuesto.crear(); new crearPuesto();});
@@ -57,13 +57,14 @@ public class opciones {
                 alert.show();
             }
         });
-        atender.setOnAction(a->{if(!Operatividad.getInstance().getPuestos().isEmpty()){
-            new atender(Operatividad.getInstance().getPuestos().getFirst());
-            Operatividad.getInstance().getPuestos().removeFirst();
-        }else{
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        atender.setOnAction(a->{
+            Puesto puesto=(Puesto)gui.getTurnos().getSelectionModel().getSelectedItem();
+            if(puesto!=null){
+                new atender(puesto);
+            }else{
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Information Dialog");
-                alert.setHeaderText("Actualmente no hay turnos para ser atendidos");
+                alert.setHeaderText("Actualmente no a seleccionado del table view algun turno para ser atendido");
                 alert.show();
         }
         });
