@@ -12,6 +12,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
+import estructura.EscrituraDeArchivos;
 
 public class formularioPaciente extends Formulario{
     private ArrayList<Sintoma> sintomas;
@@ -57,6 +58,7 @@ public class formularioPaciente extends Formulario{
                 try{
                     int edad=Integer.parseInt(((TextField)root.getChildren().get(5)).getText());
                     Paciente p=new Paciente(nombre,Apellido,Genero,edad,sintoma);
+                    EscrituraDeArchivos.escrituraPacientes(p);
                     Operatividad.getInstance().agregarCola(p);
                     mostrarAlerta("Su turno es: "+p.getTurno());
                     window.close();

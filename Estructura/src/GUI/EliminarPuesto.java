@@ -11,6 +11,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import estructura.EscrituraDeArchivos;
 
 public class EliminarPuesto {
     VBox root;
@@ -44,6 +45,7 @@ public class EliminarPuesto {
         eliminar.setOnAction(e ->{
             Puesto puesto = (Puesto) puestos.getValue();
             Operatividad.getInstance().eliminarPuesto(puesto);
+            EscrituraDeArchivos.escrituraPuesto(Operatividad.getInstance().getPuestos());
             stage.close();
         });
         

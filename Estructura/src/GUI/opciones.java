@@ -12,6 +12,7 @@ import estructura.LecturaDeArchivos;
 import java.util.LinkedList;
 import javafx.geometry.Insets;
 import javafx.scene.control.Alert;
+import javafx.scene.layout.Region;
 
 public class opciones {
     private VBox root = new VBox(20);
@@ -65,6 +66,7 @@ public class opciones {
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Information Dialog");
                 alert.setHeaderText("Actualmente no a seleccionado del table view algun turno para ser atendido");
+                alert.getDialogPane().setMinHeight(Region.USE_PREF_SIZE);
                 alert.show();
         }
         });

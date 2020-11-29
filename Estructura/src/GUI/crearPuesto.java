@@ -1,15 +1,13 @@
 
 package GUI;
 
-
-import java.io.FileWriter;
-import java.io.IOException;
 import Persona.Puesto;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import estructura.EscrituraDeArchivos;
 
 public class crearPuesto {
     
@@ -30,21 +28,16 @@ public class crearPuesto {
     }
     
     public static void crear(){
-        try (FileWriter writer = new FileWriter("src/Archivos/puestos.txt")){
         if(Operatividad.getInstance().getPuestos().isEmpty()){
             Puesto pu = new Puesto(0);
             Operatividad.getInstance().getPuestos().add(pu);
-            writer.write(pu.toString());
+            EscrituraDeArchivos.escrituraPuesto(Operatividad.getInstance().getPuestos());
         }else{ 
             Puesto p = Operatividad.getInstance().getPuestos().getLast();
-            int pos = Operatividad.getInstance().getPuestos().indexOf(p);
+            int pos = p.getNumero();
             Puesto pu = new Puesto(pos+1);
             Operatividad.getInstance().getPuestos().addLast(pu);
-            writer.write(pu.toString());
+            EscrituraDeArchivos.escrituraPuesto(Operatividad.getInstance().getPuestos());
         }
     }
-    catch (IOException e){
-    System.err.println("ERROR EN LECTURA");
-}
-}
 }

@@ -1,24 +1,45 @@
 package estructura;
 
 import Persona.Medico;
+import Persona.Paciente;
+import Persona.Puesto;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.LinkedList;
 
 public class EscrituraDeArchivos {
 
-    public static void EscrituraMedicos(LinkedList<Medico> m) {
+    public static void EscrituraMedicos(Medico m) {
         try ( FileWriter fw = new FileWriter("medicos.txt", true);  
-            BufferedWriter bw = new BufferedWriter(fw);
-            PrintWriter out = new PrintWriter(bw)) 
+            BufferedWriter bw = new BufferedWriter(fw)) 
         {
-            for (Medico c: m){
-               out.println(c.getNombre()+ "/" + c.getApellido() + "/" + c.getEspecialidad()); 
+            String text = m.toString();
+            bw.write(text);
+            bw.newLine();
+            } catch (IOException e) {
+            System.out.println("No hay tal archivo!");
+        }
+    }
+    public static void escrituraPacientes(Paciente p){
+        try(FileWriter fw = new FileWriter("src/Archivos/Pacientes.txt", true);
+        BufferedWriter bw = new BufferedWriter(fw))
+        {
+            String text = p.toString();
+            bw.write(text);
+            bw.newLine();
+        }catch (IOException e) {
+            System.out.println("No hay tal archivo!");
+        }
+    }
+    public static void escrituraPuesto(LinkedList<Puesto> puestos){
+        try(FileWriter fw = new FileWriter("src/Archivos/puestos.txt", false);
+        BufferedWriter bw = new BufferedWriter(fw)){
+            for(Puesto p: puestos){
+                bw.write(p.toString());
+                bw.newLine();
             }
-            
-        } catch (IOException e) {
+        }catch (IOException e){
             System.out.println("No hay tal archivo!");
         }
     }
