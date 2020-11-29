@@ -17,6 +17,7 @@ public class Operatividad {
         this.Pacientes = LecturaDeArchivos.LecturaPaciente();
         puestos=LecturaDeArchivos.LecturaPuestos();
         TurnosIniciales();
+        doctores = LecturaDeArchivos.LecturaMedicos();
     }
 
     public LinkedList<Medico> getDoctores() {

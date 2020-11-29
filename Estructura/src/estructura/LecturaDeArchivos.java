@@ -23,9 +23,7 @@ public class LecturaDeArchivos {
 
     public static ArrayList<Sintoma> LecturaSintomas(){
         ArrayList<Sintoma> lista_sintomas=new ArrayList<>();
-        FileReader f = null;
-        try {
-            f = new FileReader("src/Archivos/sintoma.txt");
+        try (FileReader f = new FileReader("src/Archivos/sintoma.txt")){
             BufferedReader b = new BufferedReader(f);
             String cadena;
             while((cadena=b.readLine())!=null){
@@ -44,9 +42,7 @@ public class LecturaDeArchivos {
     
     public static PriorityQueue<Paciente> LecturaPaciente(){
         PriorityQueue<Paciente> Pacien=new PriorityQueue<>((Paciente p1, Paciente p2)-> p1.getSintoma().getPrioridad()-p2.getSintoma().getPrioridad());
-        FileReader f = null;
-        try {
-            f = new FileReader("src/Archivos/pacientes.txt");
+        try (FileReader f = new FileReader("src/Archivos/pacientes.txt")){
             BufferedReader b = new BufferedReader(f);
             String cadena;
             while((cadena=b.readLine())!=null){
@@ -63,9 +59,7 @@ public class LecturaDeArchivos {
     }
     public static LinkedList<Puesto> LecturaPuestos(){
         LinkedList<Puesto> puestos=new  LinkedList<>();
-        FileReader f = null;
-        try {
-            f = new FileReader("src/Archivos/puestos.txt");
+        try (FileReader f = new FileReader("src/Archivos/puestos.txt")){
             BufferedReader b = new BufferedReader(f);
             String cadena;
             while((cadena=b.readLine())!=null){
@@ -111,6 +105,26 @@ public class LecturaDeArchivos {
             Logger.getLogger(LecturaDeArchivos.class.getName()).log(Level.SEVERE, null, ex);
         }
         return medicos;
+    }
+    
+    public static LinkedList<Puesto> LecturaPuestosConMedicos(){
+        LinkedList<Puesto> slot =new  LinkedList<>();
+        try (FileReader f = new FileReader("src/Archivos/puestosconmedicos.txt")){
+            BufferedReader b = new BufferedReader(f);
+            String cadena;
+            while((cadena=b.readLine())!=null){
+                String[] cadenas=cadena.split("/");
+                Puesto p = new Puesto(Integer.parseInt(cadenas[0]));
+                Medico m = new Medico(cadenas[1], cadenas[2], cadenas[3]);
+                p.setMedicoTurnoo(m);
+                slot.add(p);
+            }
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(LecturaDeArchivos.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(LecturaDeArchivos.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return slot;
     }
     
 }
