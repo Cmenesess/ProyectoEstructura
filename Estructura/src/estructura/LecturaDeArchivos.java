@@ -1,13 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package estructura;
 
 import Collecciones.CircularDoublyLinkedList;
-import Collecciones.CircularSimplyLinkedList;
-import Collecciones.List;
 import Persona.*;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -97,6 +91,24 @@ public class LecturaDeArchivos {
             System.out.println(ex.getMessage());
         }
         return video;
+    }
+    
+    public static LinkedList<Medico> LecturaMedicos(){
+        LinkedList<Medico> medicos =new  LinkedList<>();
+        try (FileReader f = new FileReader("src/Archivos/medicos.txt")){
+            BufferedReader b = new BufferedReader(f);
+            String cadena;
+            while((cadena=b.readLine())!=null){
+                String[] cadenas=cadena.split("/");
+                Medico m = new Medico(cadenas[0], cadenas[1], cadenas[2]);
+                medicos.add(m);
+            }
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(LecturaDeArchivos.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(LecturaDeArchivos.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return medicos;
     }
     
 }
