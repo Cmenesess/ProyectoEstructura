@@ -45,14 +45,19 @@ public class atender {
         scene.getStylesheets().add("css/estilos.css");
         window.setScene(scene);
         window.show();
+        ingresar.setOnAction(a->{     
+            generarReceta();
+            Operatividad.getInstance().generarPuesto(p);
+            window.close();
+            
+        });
     }
 
-    public void generarReceta(Puesto pu){
-        Medico d = pu.getMedicoTurnoo();
-        Paciente p = pu.getPaciente();
-        
+    public void generarReceta(){
+        Medico d = p.getMedicoTurnoo();
+        Paciente P = p.getPaciente();
         String apellidoDoc = d.getApellido();
-        String apellidoPaciente = p.getApellido();
+        String apellidoPaciente = P.getApellido();
         try {
         FileWriter writer = new FileWriter("src/Archivos/recetas.txt");
         String res = ("El doctor " + apellidoDoc + " le receta al Sr/Sra "+ apellidoPaciente +  medicina.getText()  + " debido a su " + enfermedad.getText() );
@@ -62,8 +67,6 @@ public class atender {
     }
 	public String textoCaso(Puesto p){
         Paciente pac = p.getPaciente();
-        System.out.println("Hola");
-        System.out.println(pac);
         int Edad = pac.getEdad();
         String enf = pac.getSintoma().toString();
         String t = ("El paciente " + pac.getNombre() + " " + pac.getApellido()+ " de "+ Integer.toString(Edad)+(" años de edad presenta")+enf);

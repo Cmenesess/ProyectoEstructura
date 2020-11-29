@@ -57,12 +57,14 @@ public class opciones {
                 alert.show();
             }
         });
-        atender.setOnAction(a->{if(!Operatividad.getInstance().getPuestos().isEmpty()){
-            new atender(Operatividad.getInstance().getPuestos().get(0));
-        }else{
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        atender.setOnAction(a->{
+            Puesto puesto=(Puesto)gui.getTurnos().getSelectionModel().getSelectedItem();
+            if(puesto!=null){
+                new atender(puesto);
+            }else{
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Information Dialog");
-                alert.setHeaderText("Actualmente no hay turnos para ser atendidos");
+                alert.setHeaderText("Actualmente no a seleccionado del table view algun turno para ser atendido");
                 alert.show();
         }
         });

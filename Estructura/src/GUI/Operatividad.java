@@ -3,6 +3,7 @@ package GUI;
 
 import Persona.*;
 import estructura.LecturaDeArchivos;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.PriorityQueue;
@@ -23,13 +24,16 @@ public class Operatividad {
             operatividad = new Operatividad();
         return operatividad;
     }
+    
     public void agregarCola(Paciente p){
         Pacientes.offer(p);
         p.setTurno(generadorTurnos());
         Puesto puesto= puestoDisponible();
         if(puesto!=null){
             puesto.setPaciente(Pacientes.poll());
+             puesto.NoDisponible();
         }
+        gui.actualizarTableView();
     }
     private void TurnosIniciales(){
         List<Paciente> tmp = new LinkedList<>(); 
@@ -52,7 +56,7 @@ public class Operatividad {
 
     public Puesto puestoDisponible(){
         for(Puesto pu: puestos){
-            if(pu.Activo()) return pu;
+            if(pu.Actividad() && pu.Asignacion()) return pu;
         }
         return null;
     }
@@ -65,6 +69,7 @@ public class Operatividad {
         System.out.println(disponibles);
         return disponibles;
     }
+    
     public LinkedList<Medico> MedicosSinAsignar(){
         LinkedList<Medico> disponibles=new LinkedList<>();
         for(Medico p: doctores){
@@ -80,12 +85,22 @@ public class Operatividad {
     public void setPuestos(LinkedList<Puesto> puestos) {
         this.puestos = puestos;
     }
+     public List<Puesto> puestosOcupados(){
+        List<Puesto> disponibles=new ArrayList<>();
+        for(Puesto p: puestos)
+            if(!p.Actividad()) disponibles.add(p);
+        return disponibles;
+    }
+    
     public boolean generarPuesto(Puesto p){
         if(!Pacientes.isEmpty()){
             p.setPaciente(Pacientes.poll());
-            p.Disponibilidad();
-            gui.actualizarTableView();
+            p.NoDisponible();
+        }else{
+            p.Disponible();
+            p.SinPaciente();
         }
+        gui.actualizarTableView();
         return true;
     }
 

@@ -6,7 +6,6 @@
 package estructura;
 
 import Collecciones.CircularDoublyLinkedList;
-import Collecciones.CircularSimplyLinkedList;
 import Collecciones.List;
 import Persona.*;
 import java.io.BufferedReader;

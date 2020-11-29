@@ -35,6 +35,10 @@ public class gui {
         actualizarTableView();
     }
 
+    public static TableView getTurnos() {
+        return turnos;
+    }
+
     public BorderPane getRoot() {
         return root;
     }
@@ -85,10 +89,11 @@ public class gui {
     public static void actualizarTableView(){
         turnos.getItems().clear();        
         for (Puesto p: Operatividad.getInstance().getPuestos()){
-            if(!p.Activo()){
+            if(!p.Actividad()){
                 turnos.getItems().add(p);
             }
         }
     }
+    
     
 }
