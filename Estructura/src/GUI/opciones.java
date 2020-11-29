@@ -59,7 +59,8 @@ public class opciones {
             }
         });
         atender.setOnAction(a->{if(!Operatividad.getInstance().getPuestos().isEmpty()){
-            new atender(Operatividad.getInstance().getPuestos().get(0));
+            new atender(Operatividad.getInstance().getPuestos().getFirst());
+            Operatividad.getInstance().getPuestos().removeFirst();
         }else{
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Information Dialog");
