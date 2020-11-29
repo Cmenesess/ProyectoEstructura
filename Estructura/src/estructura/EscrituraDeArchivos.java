@@ -8,7 +8,6 @@ import java.io.PrintWriter;
 import java.util.LinkedList;
 
 public class EscrituraDeArchivos {
-
     public static void EscrituraMedicos(LinkedList<Medico> m) {
         try ( FileWriter fw = new FileWriter("medicos.txt", true);  
             BufferedWriter bw = new BufferedWriter(fw);

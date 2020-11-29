@@ -101,7 +101,6 @@ public class LecturaDeArchivos {
         }
         return medicos;
     }
-    
     public static LinkedList<Puesto> LecturaPuestosConMedicos(){
         LinkedList<Puesto> slot =new  LinkedList<>();
         try (FileReader f = new FileReader("src/Archivos/puestosconmedicos.txt")){

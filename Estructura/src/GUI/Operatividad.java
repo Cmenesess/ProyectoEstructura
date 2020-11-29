@@ -21,15 +21,12 @@ public class Operatividad {
         doctores = LecturaDeArchivos.LecturaMedicos();
         puestos.addAll(LecturaDeArchivos.LecturaPuestosConMedicos());
     }
-
     public LinkedList<Medico> getDoctores() {
         return doctores;
     }
-
     public PriorityQueue<Paciente> getPacientes() {
         return Pacientes;
     }
-
     public int getTurno() {
         return turno;
     }
@@ -38,7 +35,6 @@ public class Operatividad {
             operatividad = new Operatividad();
         return operatividad;
     }
-    
     public void agregarCola(Paciente p){
         Pacientes.offer(p);
         p.setTurno(generadorTurnos());
