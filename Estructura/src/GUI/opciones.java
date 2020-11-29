@@ -7,7 +7,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import GUI.formularioPaciente;
 import Persona.*;
 import estructura.LecturaDeArchivos;
 import java.util.LinkedList;
@@ -19,7 +18,6 @@ public class opciones {
     private Label texto = new Label("Escoja la opcion que desee: ");
     private Button sturno = new Button("Sacar Turno");
     private Button cpuesto = new Button("Crear puesto");
-    private Button eturno = new Button("Eliminar turno");
     private Button AsignarMedico = new Button("Asignacion de medico a Puesto");
     private Button pturno = new Button("Eliminar puesto");
     private Button atender = new Button("Atender paciente");
@@ -34,14 +32,19 @@ public class opciones {
         root.setPadding(new Insets(20,20,20,20));
         root.setId("box");
 
-        root.getChildren().addAll(texto, sturno, cpuesto, eturno, pturno, atender, doctor,AsignarMedico);
+        root.getChildren().addAll(texto, sturno, cpuesto, pturno, atender, doctor,AsignarMedico);
         sturno.setOnAction(e->{new formularioPaciente(LecturaDeArchivos.LecturaSintomas());});
         doctor.setOnAction(d-> new formularioDoctor());
 		cpuesto.setOnAction(p-> {crearPuesto.crear(); new crearPuesto();});
         pturno.setOnAction(e ->{
             new EliminarPuesto();
         });
-        cpuesto.setOnAction(p-> {crearPuesto.crear(); new crearPuesto();});
+        cpuesto.setOnAction(p-> {crearPuesto.crear();
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Information Dialog");
+                alert.setHeaderText("El puesto fue creado");
+                alert.show();
+        });
         AsignarMedico.setOnAction(d->{ 
             LinkedList<Puesto> puestos= Operatividad.getInstance().puestosSinAsignar();
             LinkedList<Medico> medicos=Operatividad.getInstance().MedicosSinAsignar();
@@ -54,12 +57,20 @@ public class opciones {
                 alert.show();
             }
         });
-        atender.setOnAction(a->new atender(Operatividad.getInstance().puestoDisponible()));
+        atender.setOnAction(a->{if(!Operatividad.getInstance().getPuestos().isEmpty()){
+            new atender(Operatividad.getInstance().getPuestos().get(0));
+        }else{
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Information Dialog");
+                alert.setHeaderText("Actualmente no hay turnos para ser atendidos");
+                alert.show();
+        }
+        });
         Stage window = new Stage();
         window.setTitle("OPCIONES");
         window.setMinHeight(100);
         window.setMinWidth(100);
-        Scene scene = new Scene((Parent)root,250,350);
+        Scene scene = new Scene((Parent)root,350,450);
         scene.getStylesheets().add("css/estilos.css");
         window.setScene(scene);
         window.show();
