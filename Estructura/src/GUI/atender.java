@@ -33,17 +33,19 @@ public class atender {
     Label mid = new Label("Por lo que se le recomienda tomar la siguiente medicina: ");
     Button ingresar = new Button("Enviar Receta");
     public atender(Puesto p){
+        this.p=p;
         llenar();
     }
     public void llenar(){
         VBox root = new VBox();
-        
-        root.getChildren().addAll(in,enfermedad,mid,medicina,ingresar);
+        Label sin = new Label(textoCaso(p));
+        root.getChildren().addAll(sin,in,enfermedad,mid,medicina,ingresar);
         Stage window = new Stage();
         window.setTitle("Recetas");
         window.setMinHeight(400);
         window.setMinWidth(400);
         Scene scene = new Scene((Parent)root,400,400);
+        scene.getStylesheets().add("css/estilos.css");
         window.setScene(scene);
         window.show();
     }
@@ -57,9 +59,17 @@ public class atender {
         try {
         FileWriter writer = new FileWriter("src/Archivos/recetas.txt");
         String res = ("El doctor " + apellidoDoc + " le receta al Sr/Sra "+ apellidoPaciente +  medicina.getText()  + " debido a su " + enfermedad.getText() );
+        }catch (IOException e){
+            System.err.println("ERROR EN LECTURA");
+        }
     }
-    catch (IOException e){
-    System.err.println("ERROR EN LECTURA");
+	public String textoCaso(Puesto p){
+        Paciente pac = p.getPaciente();
+        System.out.println("Hola");
+        System.out.println(pac);
+        int Edad = pac.getEdad();
+        String enf = pac.getSintoma().toString();
+        String t = ("El paciente " + pac.getNombre() + " " + pac.getApellido()+ " de "+ Integer.toString(Edad)+(" años de edad presenta")+enf);
+        return t;
     }
-}
 }

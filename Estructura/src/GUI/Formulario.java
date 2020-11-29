@@ -30,6 +30,7 @@ public abstract class Formulario {
         window.setMinHeight(400);
         window.setMinWidth(400);
         Scene scene = new Scene((Parent)root,200,200);
+		scene.getStylesheets().add("css/estilos.css");
         window.setScene(scene);
         window.show();
     }
