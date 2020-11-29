@@ -90,7 +90,7 @@ public class LecturaDeArchivos {
             BufferedReader b = new BufferedReader(f);
             String cadena;
             while((cadena=b.readLine())!=null){
-                String[] cadenas=cadena.split("/");
+                String[] cadenas=cadena.split(" ");
                 Medico m = new Medico(cadenas[0], cadenas[1], cadenas[2]);
                 medicos.add(m);
             }
@@ -107,7 +107,7 @@ public class LecturaDeArchivos {
             BufferedReader b = new BufferedReader(f);
             String cadena;
             while((cadena=b.readLine())!=null){
-                String[] cadenas=cadena.split("/");
+                String[] cadenas=cadena.split(" ");
                 Puesto p = new Puesto(Integer.parseInt(cadenas[0]));
                 Medico m = new Medico(cadenas[1], cadenas[2], cadenas[3]);
                 p.setMedicoTurnoo(m);

@@ -7,6 +7,7 @@ import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import estructura.EscrituraDeArchivos;
 
 public class FormularioPuesto extends Formulario {
     private LinkedList<Puesto> PuestoDisponible;
@@ -37,6 +38,7 @@ public class FormularioPuesto extends Formulario {
         ok.setOnAction(e->{
            Puesto puesto=(Puesto)((ComboBox)root.getChildren().get(1)).getValue();
            Medico medico=(Medico)((ComboBox)root.getChildren().get(3)).getValue();
+           EscrituraDeArchivos.escrituraPuestosMed(puesto, medico);
            medico.setEstado(true);
            puesto.setMedicoTurnoo(medico);
            Operatividad.getInstance().generarPuesto(puesto);

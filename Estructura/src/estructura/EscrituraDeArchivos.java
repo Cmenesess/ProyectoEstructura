@@ -44,4 +44,16 @@ public class EscrituraDeArchivos {
             System.out.println("No hay tal archivo!");
         }
     }
+    public static void escrituraPuestosMed(Puesto p, Medico m){
+        try(FileWriter fw = new FileWriter("src/Archivos/puestosconmedicos.txt", true);
+        BufferedWriter bw = new BufferedWriter(fw))
+        {
+            String text = p.toString();
+            String text2 = m.toString();
+            bw.write(text +" "+ text2);
+            bw.newLine();
+        }catch (IOException e) {
+            System.out.println("No hay tal archivo!");
+        }
+    }
 }
