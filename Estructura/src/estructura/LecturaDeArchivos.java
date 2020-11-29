@@ -1,12 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package estructura;
 
 import Collecciones.CircularDoublyLinkedList;
-import Collecciones.List;
+
 import Persona.*;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -18,17 +14,11 @@ import java.util.PriorityQueue;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-/**
- *
- * @author carloshumbertomenesesmurillo
- */
 public class LecturaDeArchivos {
 
     public static ArrayList<Sintoma> LecturaSintomas(){
         ArrayList<Sintoma> lista_sintomas=new ArrayList<>();
-        FileReader f = null;
-        try {
-            f = new FileReader("src/Archivos/sintoma.txt");
+        try (FileReader f = new FileReader("src/Archivos/sintoma.txt")){
             BufferedReader b = new BufferedReader(f);
             String cadena;
             while((cadena=b.readLine())!=null){
@@ -47,9 +37,7 @@ public class LecturaDeArchivos {
     
     public static PriorityQueue<Paciente> LecturaPaciente(){
         PriorityQueue<Paciente> Pacien=new PriorityQueue<>((Paciente p1, Paciente p2)-> p1.getSintoma().getPrioridad()-p2.getSintoma().getPrioridad());
-        FileReader f = null;
-        try {
-            f = new FileReader("src/Archivos/pacientes.txt");
+        try (FileReader f = new FileReader("src/Archivos/pacientes.txt")){
             BufferedReader b = new BufferedReader(f);
             String cadena;
             while((cadena=b.readLine())!=null){
@@ -66,9 +54,7 @@ public class LecturaDeArchivos {
     }
     public static LinkedList<Puesto> LecturaPuestos(){
         LinkedList<Puesto> puestos=new  LinkedList<>();
-        FileReader f = null;
-        try {
-            f = new FileReader("src/Archivos/puestos.txt");
+        try (FileReader f = new FileReader("src/Archivos/puestos.txt")){
             BufferedReader b = new BufferedReader(f);
             String cadena;
             while((cadena=b.readLine())!=null){
@@ -96,6 +82,44 @@ public class LecturaDeArchivos {
             System.out.println(ex.getMessage());
         }
         return video;
+    }
+    
+    public static LinkedList<Medico> LecturaMedicos(){
+        LinkedList<Medico> medicos =new  LinkedList<>();
+        try (FileReader f = new FileReader("src/Archivos/medicos.txt")){
+            BufferedReader b = new BufferedReader(f);
+            String cadena;
+            while((cadena=b.readLine())!=null){
+                String[] cadenas=cadena.split("/");
+                Medico m = new Medico(cadenas[0], cadenas[1], cadenas[2]);
+                medicos.add(m);
+            }
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(LecturaDeArchivos.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(LecturaDeArchivos.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return medicos;
+    }
+    
+    public static LinkedList<Puesto> LecturaPuestosConMedicos(){
+        LinkedList<Puesto> slot =new  LinkedList<>();
+        try (FileReader f = new FileReader("src/Archivos/puestosconmedicos.txt")){
+            BufferedReader b = new BufferedReader(f);
+            String cadena;
+            while((cadena=b.readLine())!=null){
+                String[] cadenas=cadena.split("/");
+                Puesto p = new Puesto(Integer.parseInt(cadenas[0]));
+                Medico m = new Medico(cadenas[1], cadenas[2], cadenas[3]);
+                p.setMedicoTurnoo(m);
+                slot.add(p);
+            }
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(LecturaDeArchivos.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(LecturaDeArchivos.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return slot;
     }
     
 }

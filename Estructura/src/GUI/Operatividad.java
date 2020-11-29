@@ -10,14 +10,28 @@ import java.util.PriorityQueue;
 
 public class Operatividad {
     private static Operatividad operatividad=null;
-    public LinkedList<Medico> doctores=new LinkedList<Medico>();
-    public PriorityQueue<Paciente> Pacientes=new PriorityQueue<Paciente>();
-    public LinkedList<Puesto> puestos=new LinkedList<Puesto>();
-    public int turno;
+    private LinkedList<Medico> doctores=new LinkedList<Medico>();
+    private PriorityQueue<Paciente> Pacientes=new PriorityQueue<Paciente>();
+    private LinkedList<Puesto> puestos=new LinkedList<Puesto>();
+    private int turno;
     private Operatividad(){
         this.Pacientes = LecturaDeArchivos.LecturaPaciente();
         puestos=LecturaDeArchivos.LecturaPuestos();
         TurnosIniciales();
+        doctores = LecturaDeArchivos.LecturaMedicos();
+        puestos.addAll(LecturaDeArchivos.LecturaPuestosConMedicos());
+    }
+
+    public LinkedList<Medico> getDoctores() {
+        return doctores;
+    }
+
+    public PriorityQueue<Paciente> getPacientes() {
+        return Pacientes;
+    }
+
+    public int getTurno() {
+        return turno;
     }
     public static Operatividad getInstance() {
         if (null == operatividad)

@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package GUI;
 
 import Persona.*;
@@ -12,13 +8,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 
-/**
- *
- * @author carloshumbertomenesesmurillo
- */
 public class FormularioPuesto extends Formulario {
-    public LinkedList<Puesto> PuestoDisponible;
-    public LinkedList<Medico> DoctoresDisponibles;
+    private LinkedList<Puesto> PuestoDisponible;
+    private  LinkedList<Medico> DoctoresDisponibles;
     public FormularioPuesto(LinkedList<Puesto> PuestoDisponible,LinkedList<Medico> DoctoresDisponibles){
         this.PuestoDisponible=PuestoDisponible;
         this.DoctoresDisponibles=DoctoresDisponibles;

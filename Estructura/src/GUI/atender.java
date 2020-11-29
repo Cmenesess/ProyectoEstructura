@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package GUI;
 
 import Persona.Medico;
@@ -18,10 +14,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-/**
- *
- * @author Xavier
- */
 public class atender {
     private Puesto p;
     TextField enfermedad = new TextField("Ingrese la enfermedad presentada");
@@ -71,5 +63,6 @@ public class atender {
         String enf = pac.getSintoma().toString();
         String t = ("El paciente " + pac.getNombre() + " " + pac.getApellido()+ " de "+ Integer.toString(Edad)+(" años de edad presenta")+enf);
         return t;
+
     }
 }

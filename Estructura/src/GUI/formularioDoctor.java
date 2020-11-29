@@ -8,10 +8,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 
-/**
- *
- * @author Xavier
- */
 public class formularioDoctor extends Formulario{
     private TextField nombre = new TextField("Ingrese su nombre");
     private TextField especialidad = new TextField("Ingrese su especialidad");
@@ -40,7 +36,7 @@ public class formularioDoctor extends Formulario{
     }
     public void crearDoctor(){
         Medico m = new Medico(nombre.getText(), especialidad.getText(), id.getText());
-        Operatividad.getInstance().doctores.addLast(m);
+        Operatividad.getInstance().getDoctores().addLast(m);
     }
     
     public GridPane getRoot(){

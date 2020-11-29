@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package GUI;
 
 
@@ -15,10 +11,6 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-/**
- *
- * @author Xavier
- */
 public class crearPuesto {
     
     public crearPuesto(){
@@ -38,17 +30,16 @@ public class crearPuesto {
     }
     
     public static void crear(){
-        try {
-        FileWriter writer = new FileWriter("src/Archivos/puestos.txt");
-        if(Operatividad.getInstance().puestos.isEmpty()){
+        try (FileWriter writer = new FileWriter("src/Archivos/puestos.txt")){
+        if(Operatividad.getInstance().getPuestos().isEmpty()){
             Puesto pu = new Puesto(0);
-            Operatividad.getInstance().puestos.add(pu);
+            Operatividad.getInstance().getPuestos().add(pu);
             writer.write(pu.toString());
         }else{ 
-            Puesto p = Operatividad.getInstance().puestos.getLast();
-            int pos = Operatividad.getInstance().puestos.indexOf(p);
+            Puesto p = Operatividad.getInstance().getPuestos().getLast();
+            int pos = Operatividad.getInstance().getPuestos().indexOf(p);
             Puesto pu = new Puesto(pos+1);
-            Operatividad.getInstance().puestos.addLast(pu);
+            Operatividad.getInstance().getPuestos().addLast(pu);
             writer.write(pu.toString());
         }
     }

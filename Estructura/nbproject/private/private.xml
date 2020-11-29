@@ -20,9 +20,12 @@
 =======
 >>>>>>> 8c913109abe3c633ea638d9e5ff9e3b81f1e01e9
             <file>file:/C:/PROYECTO/ProyectoSinMaven/ProyectoEstructura/Estructura/src/GUI/atender.java</file>
+            <file>file:/C:/PROYECTO/ProyectoSinMaven/ProyectoEstructura/Estructura/src/GUI/formularioDoctor.java</file>
+            <file>file:/C:/PROYECTO/ProyectoSinMaven/ProyectoEstructura/Estructura/src/Persona/Medico.java</file>
             <file>file:/C:/PROYECTO/ProyectoSinMaven/ProyectoEstructura/Estructura/src/GUI/Operatividad.java</file>
             <file>file:/C:/PROYECTO/ProyectoSinMaven/ProyectoEstructura/Estructura/src/GUI/opciones.java</file>
             <file>file:/C:/PROYECTO/ProyectoSinMaven/ProyectoEstructura/Estructura/src/GUI/gui.java</file>
+<<<<<<< HEAD
 <<<<<<< HEAD
             <file>file:/C:/PROYECTO/ProyectoSinMaven/ProyectoEstructura/Estructura/src/GUI/SistemaDeTurnos.java</file>
             <file>file:/C:/PROYECTO/ProyectoSinMaven/ProyectoEstructura/Estructura/src/GUI/crearPuesto.java</file>
@@ -31,6 +34,13 @@
 =======
             <file>file:/C:/PROYECTO/ProyectoSinMaven/ProyectoEstructura/Estructura/src/estructura/LecturaDeArchivos.java</file>
 >>>>>>> 8c913109abe3c633ea638d9e5ff9e3b81f1e01e9
+=======
+            <file>file:/C:/PROYECTO/ProyectoSinMaven/ProyectoEstructura/Estructura/src/GUI/FormularioPuesto.java</file>
+            <file>file:/C:/PROYECTO/ProyectoSinMaven/ProyectoEstructura/Estructura/src/Collecciones/CircularDoublyLinkedList.java</file>
+            <file>file:/C:/PROYECTO/ProyectoSinMaven/ProyectoEstructura/Estructura/src/GUI/crearPuesto.java</file>
+            <file>file:/C:/PROYECTO/ProyectoSinMaven/ProyectoEstructura/Estructura/src/estructura/LecturaDeArchivos.java</file>
+            <file>file:/C:/PROYECTO/ProyectoSinMaven/ProyectoEstructura/Estructura/src/GUI/EliminarPuesto.java</file>
+>>>>>>> d35724a27ef0f89d3fbe7baeeb20af7decee488d
         </group>
     </open-files>
 </project-private>
