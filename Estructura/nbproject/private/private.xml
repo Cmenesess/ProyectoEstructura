@@ -3,38 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
-            <file>file:/Users/carloshumbertomenesesmurillo/Desktop/Estructura/ProyectoEstructura/Estructura/src/Archivos/sintoma.txt</file>
-            <file>file:/Users/carloshumbertomenesesmurillo/Desktop/Estructura/ProyectoEstructura/Estructura/src/Archivos/button.png</file>
-            <file>file:/Users/carloshumbertomenesesmurillo/Desktop/Estructura/ProyectoEstructura/Estructura/src/GUI/SistemaDeTurnos.java</file>
-            <file>file:/Users/carloshumbertomenesesmurillo/Desktop/Estructura/ProyectoEstructura/Estructura/src/Persona/Puesto.java</file>
-            <file>file:/Users/carloshumbertomenesesmurillo/Desktop/Estructura/ProyectoEstructura/Estructura/src/GUI/crearPuesto.java</file>
-            <file>file:/Users/carloshumbertomenesesmurillo/Desktop/Estructura/ProyectoEstructura/Estructura/src/GUI/opciones.java</file>
-            <file>file:/Users/carloshumbertomenesesmurillo/Desktop/Estructura/ProyectoEstructura/Estructura/src/Persona/Paciente.java</file>
-            <file>file:/Users/carloshumbertomenesesmurillo/Desktop/Estructura/ProyectoEstructura/Estructura/src/Archivos/Medicos.txt</file>
-            <file>file:/Users/carloshumbertomenesesmurillo/Desktop/Estructura/ProyectoEstructura/Estructura/src/GUI/video.java</file>
-            <file>file:/Users/carloshumbertomenesesmurillo/Desktop/Estructura/ProyectoEstructura/Estructura/src/GUI/formularioPaciente.java</file>
-            <file>file:/Users/carloshumbertomenesesmurillo/Desktop/Estructura/ProyectoEstructura/Estructura/src/estructura/EscrituraDeArchivos.java</file>
-=======
-            <file>file:/C:/PROYECTO/ProyectoSinMaven/ProyectoEstructura/Estructura/src/GUI/atender.java</file>
-            <file>file:/C:/PROYECTO/ProyectoSinMaven/ProyectoEstructura/Estructura/src/Persona/Medico.java</file>
-            <file>file:/C:/PROYECTO/ProyectoSinMaven/ProyectoEstructura/Estructura/src/GUI/formularioPaciente.java</file>
-            <file>file:/C:/PROYECTO/ProyectoSinMaven/ProyectoEstructura/Estructura/src/Archivos/Pacientes.txt</file>
             <file>file:/C:/PROYECTO/ProyectoSinMaven/ProyectoEstructura/Estructura/src/Archivos/button.png</file>
-            <file>file:/C:/PROYECTO/ProyectoSinMaven/ProyectoEstructura/Estructura/src/Archivos/sintoma.txt</file>
-            <file>file:/C:/PROYECTO/ProyectoSinMaven/ProyectoEstructura/Estructura/src/Archivos/puestos.txt</file>
-            <file>file:/C:/PROYECTO/ProyectoSinMaven/ProyectoEstructura/Estructura/src/GUI/Operatividad.java</file>
-            <file>file:/C:/PROYECTO/ProyectoSinMaven/ProyectoEstructura/Estructura/src/GUI/opciones.java</file>
-            <file>file:/C:/PROYECTO/ProyectoSinMaven/ProyectoEstructura/Estructura/src/GUI/SistemaDeTurnos.java</file>
-            <file>file:/C:/PROYECTO/ProyectoSinMaven/ProyectoEstructura/Estructura/src/Persona/Puesto.java</file>
-            <file>file:/C:/PROYECTO/ProyectoSinMaven/ProyectoEstructura/Estructura/src/GUI/crearPuesto.java</file>
-<<<<<<< HEAD
->>>>>>> d864b79b631678610b053f0a74b606d551eb6a2c
-=======
-            <file>file:/C:/PROYECTO/ProyectoSinMaven/ProyectoEstructura/Estructura/src/estructura/LecturaDeArchivos.java</file>
-            <file>file:/C:/PROYECTO/ProyectoSinMaven/ProyectoEstructura/Estructura/src/estructura/EscrituraDeArchivos.java</file>
-            <file>file:/C:/PROYECTO/ProyectoSinMaven/ProyectoEstructura/Estructura/src/GUI/EliminarPuesto.java</file>
->>>>>>> eb8654906c384ec3023f65ddb67338e65405604d
         </group>
     </open-files>
 </project-private>

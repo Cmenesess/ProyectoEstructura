@@ -12,7 +12,7 @@ public class EscrituraDeArchivos {
 
 
     public static void EscrituraMedicos(Medico m) {
-        try ( FileWriter fw = new FileWriter("medicos.txt", true);  
+        try ( FileWriter fw = new FileWriter("src/Archivos/Medicos.txt", true);  
             BufferedWriter bw = new BufferedWriter(fw)) 
         {
             String text = m.toString();
