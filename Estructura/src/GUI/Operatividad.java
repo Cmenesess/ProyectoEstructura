@@ -18,6 +18,7 @@ public class Operatividad {
         puestos=LecturaDeArchivos.LecturaPuestos();
         TurnosIniciales();
         doctores = LecturaDeArchivos.LecturaMedicos();
+        puestos.addAll(LecturaDeArchivos.LecturaPuestosConMedicos());
     }
 
     public LinkedList<Medico> getDoctores() {

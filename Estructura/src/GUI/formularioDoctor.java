@@ -8,10 +8,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 
-/**
- *
- * @author Xavier
- */
 public class formularioDoctor extends Formulario{
     private TextField nombre = new TextField("Ingrese su nombre");
     private TextField especialidad = new TextField("Ingrese su especialidad");

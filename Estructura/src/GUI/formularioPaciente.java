@@ -1,7 +1,6 @@
 
 package GUI;
 
-
 import Persona.Paciente;
 import Persona.Sintoma;
 import java.util.ArrayList;

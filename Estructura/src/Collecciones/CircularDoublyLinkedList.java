@@ -1,16 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Collecciones;
 
 import java.util.Iterator;
+import java.util.NoSuchElementException;
 
-/**
- *
- * @author carloshumbertomenesesmurillo
- */
 public class CircularDoublyLinkedList<E> implements List<E>,Iterable<E>{
     private class Node<E> {
         private E data;
@@ -39,6 +32,9 @@ public class CircularDoublyLinkedList<E> implements List<E>,Iterable<E>{
             }
             
             public E next(){
+                if(!hasNext()){
+                    throw new NoSuchElementException();
+                }
                 E tmp=p.data;
                 p=p.next;
                 return tmp;
@@ -49,7 +45,7 @@ public class CircularDoublyLinkedList<E> implements List<E>,Iterable<E>{
     @Override
     public boolean addFirst(E element) {
         if(element== null) return false;
-        Node<E> nuevo=new Node(element);
+        Node<E> nuevo = new Node(element);
         if(isEmpty()) {
             nuevo.next=nuevo;
             nuevo.previous=nuevo;            
@@ -89,9 +85,6 @@ public class CircularDoublyLinkedList<E> implements List<E>,Iterable<E>{
         if(isEmpty() || index<0 || index>=current || element==null) return false;
         if(index== 0){
             addFirst(element);
-            return true;
-        }else if(index== current){
-            addLast(element);
             return true;
         }else{
             Node<E> posicion=getNode(index);
@@ -220,6 +213,7 @@ public class CircularDoublyLinkedList<E> implements List<E>,Iterable<E>{
         if(isEmpty()) throw new IllegalStateException("La lista está vacía");
         return raiz.data;
     }
+    @Override
     public String toString(){
         if(isEmpty()) return "[ ]";
         StringBuilder sb= new StringBuilder();

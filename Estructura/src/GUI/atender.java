@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package GUI;
 
 import Persona.Medico;
@@ -18,10 +14,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-/**
- *
- * @author Xavier
- */
 public class atender {
     private Puesto p;
     TextField enfermedad = new TextField("Ingrese la enfermedad presentada");
@@ -52,19 +44,18 @@ public class atender {
         
         String apellidoDoc = d.getApellido();
         String apellidoPaciente = p.getApellido();
-        try {
-        FileWriter writer = new FileWriter("src/Archivos/recetas.txt");
+        try (FileWriter writer = new FileWriter("src/Archivos/recetas.txt")){
         String res = ("El doctor " + apellidoDoc + " le receta al Sr/Sra "+ apellidoPaciente +  medicina.getText()  + " debido a su " + enfermedad.getText() );
-    }
-    catch (IOException e){
-    System.err.println("ERROR EN LECTURA");
-    }
+        }
+        catch (IOException e){
+        System.err.println("ERROR EN LECTURA");
+        }
 }
-	 public String textoCaso(Puesto p){
-        Paciente pac = p.getPaciente();
-        int Edad = pac.getEdad();
-        String enf = pac.getSintoma().toString();
-        String t = ("El paciente " + pac.getNombre() + " " + pac.getApellido()+ " de "+ Integer.toString(Edad)+(" años de edad presenta")+enf);
-        return t;
+	public String textoCaso(Puesto p){
+            Paciente pac = p.getPaciente();
+            int Edad = pac.getEdad();
+            String enf = pac.getSintoma().toString();
+            String t = ("El paciente " + pac.getNombre() + " " + pac.getApellido()+ " de "+ Integer.toString(Edad)+(" años de edad presenta")+enf);
+            return t;
     }
 }
