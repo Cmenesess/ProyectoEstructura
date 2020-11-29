@@ -29,6 +29,6 @@ public class Medico extends Persona{
 
     @Override
     public String toString() {
-        return nombre;
+        return (nombre + " " + apellido + " " + especialidad);
     }
 }
