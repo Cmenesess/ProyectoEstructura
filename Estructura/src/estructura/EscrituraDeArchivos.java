@@ -26,7 +26,7 @@ public class EscrituraDeArchivos {
         try(FileWriter fw = new FileWriter("src/Archivos/Pacientes.txt", true);
         BufferedWriter bw = new BufferedWriter(fw))
         {
-            String text = p.toString();
+            String text = (p.getNombre()+","+p.getApellido()+","+p.getGenero()+","+p.getEdad()+","+p.getSintoma()+","+p.getSintoma().getPrioridad());
             bw.write(text);
             bw.newLine();
         }catch (IOException e) {
