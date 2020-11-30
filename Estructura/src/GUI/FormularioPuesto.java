@@ -19,6 +19,7 @@ public class FormularioPuesto extends Formulario {
     }
     public void CrearFormulario(){
         ComboBox<Puesto> combo = new ComboBox<Puesto>();
+        root.setId("box");
         combo.getItems().addAll(PuestoDisponible);
         System.out.println(DoctoresDisponibles);
         ComboBox<Medico> medicos=new ComboBox<Medico>();

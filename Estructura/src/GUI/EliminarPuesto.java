@@ -29,6 +29,7 @@ public class EliminarPuesto {
     
     public void createContent(LinkedList<Puesto> slot){
         root = new VBox(10);
+        root.setId("box");
         root.setPadding(new Insets(20));
         puestos = new ComboBox();
         puestos.getItems().addAll(slot);

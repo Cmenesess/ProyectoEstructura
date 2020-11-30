@@ -38,7 +38,15 @@ public class opciones {
         doctor.setOnAction(d-> new formularioDoctor());
 		cpuesto.setOnAction(p-> {crearPuesto.crear(); new crearPuesto();});
         pturno.setOnAction(e ->{
-            new EliminarPuesto();
+            
+            if(!Operatividad.getInstance().getPuestos().isEmpty()){
+                new EliminarPuesto();
+            }else{
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Information Dialog");
+                alert.setHeaderText("No hay puestos para eliminar");
+                alert.show();
+            }
         });
         cpuesto.setOnAction(p-> {crearPuesto.crear();
         Alert alert = new Alert(Alert.AlertType.INFORMATION);

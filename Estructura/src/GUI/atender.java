@@ -29,6 +29,7 @@ public class atender {
         VBox root = new VBox();
         Label sin = new Label(textoCaso(p));
         root.getChildren().addAll(sin,in,enfermedad,mid,medicina,ingresar);
+        root.setId("box");
         Stage window = new Stage();
         window.setTitle("Recetas");
         window.setMinHeight(400);

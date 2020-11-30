@@ -20,7 +20,7 @@ public class Operatividad {
         System.out.println(puestos);
         TurnosIniciales();
         doctores = LecturaDeArchivos.LecturaMedicos();
-        puestos.addAll(LecturaDeArchivos.LecturaPuestosConMedicos());
+        //LecturaDeArchivos.LecturaPuestosConMedicos();
     }
     public LinkedList<Medico> getDoctores() {
         return doctores;
