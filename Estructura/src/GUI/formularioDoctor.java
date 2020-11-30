@@ -10,9 +10,9 @@ import javafx.scene.layout.GridPane;
 import estructura.EscrituraDeArchivos;
 
 public class formularioDoctor extends Formulario{
-    private TextField nombre = new TextField("Ingrese su nombre");
-    private TextField especialidad = new TextField("Ingrese su apellido");
-    private TextField id = new TextField("Ingrese su especialidad");
+    private TextField nombre = new TextField();
+    private TextField especialidad = new TextField();
+    private TextField id = new TextField();
     private Button ingresar = new Button("Ingresar");
     public formularioDoctor(){
         llenar();
@@ -32,13 +32,20 @@ public class formularioDoctor extends Formulario{
         root.add(ingresar, 1,3);
         CrearVentana();
         ingresar.setOnAction(c->{crearDoctor();
-            window.close();
         });
     }
     public void crearDoctor(){
+        String n = nombre.getText();
+        String a = especialidad.getText();
+        String e = id.getText();
+        if(!n.isBlank() && !a.isBlank() && !e.isBlank()){
         Medico m = new Medico(nombre.getText(), especialidad.getText(), id.getText());
         Operatividad.getInstance().getDoctores().addLast(m);
         EscrituraDeArchivos.EscrituraMedicos(m);
+        window.close();
+        }else{
+            mostrarAlerta("No olvide llenar los campos");
+        }
     }
     
     public GridPane getRoot(){
