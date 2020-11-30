@@ -50,9 +50,8 @@ public class atender {
         Medico d = p.getMedicoTurnoo();
         Paciente P = p.getPaciente();
         String apellidoDoc = d.getApellido();
-        String apellidoPaciente = P.getApellido();
         try(FileWriter writer = new FileWriter("src/Archivos/recetas.txt");){
-        String res = ("El doctor " + apellidoDoc + " le receta al Sr/Sra "+ apellidoPaciente +" "+  medicina.getText()  + " debido a su " + enfermedad.getText() );
+        String res = ("El doctor " + apellidoDoc + " le receta al Sr/Sra "+ P.getNombre() +" "+  medicina.getText()  + " debido a su " + enfermedad.getText() );
         writer.write(res);
         }catch (IOException e){
             System.err.println("ERROR EN LECTURA");
